@@ -1,9 +1,24 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: wrap;
+}
+
+
 .seleccionar-cliente{
 padding: 10px;
 
 }
 
+.btn{
+    font-size: 12px;
+}
 
+.table{
+    font-size: 12px;
+}
 
 .tabla1{
 
@@ -11,4 +26,17 @@ padding: 10px;
  box-sizing: border-box;
  padding: 0;
 
+}
+
+footer{
+    font-size: 12px;
+    align-self: flex-end;
+    background-color: orange;
+    line-height: 3;
+    text-align: center;
+    width: 100%;
+}
+
+.collapsed{
+    font-size: 15px;
 }
