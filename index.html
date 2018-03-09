@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+
+    
+
     <link rel="stylesheet" href="styles.css">
     <title>Clientes Conectodos</title>
 </head>
@@ -61,20 +64,14 @@
             </h5>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body tabla1">
-                <div class="btn-group seleccionar-cliente">
-                    <button type="button" class="btn btn-warning">CLIENTE</button>
-                    <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">CONECT-001</a>
-                        <a class="dropdown-item" href="#">CONECT-002</a>
-                        <a class="dropdown-item" href="#">CONECT-003</a>
-                        <a class="dropdown-item" href="#">CONECT-004</a>
-                        <a class="dropdown-item" href="#">CONECT-005</a>
-                    </div>
-                </div>
+            <div class="card-body tabla1" id="tablaClientes">
+
+                    <select id="selector" class="selector class=" form-control "" onchange="ShowSelected();">
+                                        <option value="conect-001">CONECT-001</option>
+                                        <option value="conect-002">CONECT-002</option>
+                                        <option value="conect-003">CONECT-003</option>
+                                        <option value="conect-004">CONECT-004</option>
+                                </select>
 
                     <table class="table table-striped table-sm">
                         <thead class="bg-warning">
@@ -84,7 +81,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>NOMBRE CLIENTE</td>
+                                
+                                <td id="printCliente">NOMBRE CLIENTE</td>
                              </tr>
 
                         </tbody>
@@ -99,9 +97,9 @@
                             </thead>
                             <tbody>
                              <tr>
-                                    <td>3 MB</td>
-                                    <td>$400.00</td>
-                                    <td>01/01/2018</td>
+                                    <td id="printPaquete">3 MB</td>
+                                    <td id="printCosto">$400.00</td>
+                                    <td id="printInicio">01/01/2018</td>
                                 </tr>
 
                             </tbody>
@@ -114,9 +112,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>01/01/2018</td>
-                                    <td>01/02/2018</td>
-                                    <td>$400.00</td>
+                                    <td id="printUltPago">01/01/2018</td>
+                                    <td id="printProxPago">01/02/2018</td>
+                                    <td id="printAdeudo">$400.00</td>
                                 </tr>
 
                             </tbody>
@@ -129,30 +127,134 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>AIRGRID M2</td>
-                                    <td>192.168.20.100</td>
-                                    <td>AP NBRAVO</td>
+                                    <td id="printAntena">AIRGRID M2</td>
+                                    <td id="printIp">192.168.20.100</td>
+                                    <td id="printAp">AP NBRAVO</td>
                                 </tr>
 
                             </tbody>
                             <thead >
                                 <tr>
                             <th scope="col">
-                                <button type="button" class="btn btn-warning">Editar</button>
+                                <button type="button" class="btn btn-warning" id="btnEditar">Editar</button>
                             </th>
                             <th scope="col">
-                                <button type="button" class="btn btn-primary">Agregar</button>
+                                <button type="button" class="btn btn-primary" id="btnAgregar">Agregar</button>
                             </th>
                             <th scope="col">
-                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
                             </th>
                                 </tr>
                             </thead>
                             </table>
 
+                        </div>
+                            <!-- Agregar -->
+                            <form id="formAgregar" class="collapse">
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Agregar Cliente</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Codigo cliente" style="text-align:center" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Paquete:   </label>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required>
+                                                <label class="form-check-label" for="inlineRadio1">3 MB</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" required>
+                                                <label class="form-check-label" for="inlineRadio2">5 MB</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
+                                                <label class="form-check-label" for="inlineRadio3">7 MB</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
+                                                <label class="form-check-label" for="inlineRadio3">10 MB</label>
+                                            </div>
+                                    </div>
 
 
-                </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Renta Mensual:   </label>
+                                            
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required>
+                                                    <label class="form-check-label" for="inlineRadio1">$400.00</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" required>
+                                                    <label class="form-check-label" for="inlineRadio2">$600.00</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
+                                                    <label class="form-check-label" for="inlineRadio3">$800.00</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
+                                                    <label class="form-check-label" for="inlineRadio3">$1,000.00</label>
+                                                </div>
+
+                                        </div>
+                                    <div class="form-group">
+                                    <label for="exampleFormControlInput1">Fecha Inicio</label>
+                                    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Renta mensual" style="text-align:center" required>
+                                    </div>
+
+
+                                    <div class="row">
+
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1">Último Pago</label>
+                                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Renta mensual" style="text-align:center" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1">Próximo Pago</label>
+                                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Renta mensual" style="text-align:center" required>
+                                    </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="exampleFormControlInput1">Antena</label>
+                                            <select class="form-control" id="exampleFormControlSelect1" style="text-align:center">
+                                                <option style="text-align:center">AIRGRID M2</option>
+                                                <option style="text-align:center">NANOSTATION M2</option>
+                                                <option style="text-align:center">LITEBEAM</option>
+                                                <option style="text-align:center">PICOSTATION</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="exampleFormControlInput1">AP</label>
+                                            <select class="form-control" id="exampleFormControlSelect1" style="text-align:center">
+                                                <option style="text-align:center">AP 1</option>
+                                                <option style="text-align:center">AP 2</option>
+                                                <option style="text-align:center">AP 3</option>
+                                                <option style="text-align:center">AP 4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Dirección IP</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Dirección IP" style="text-align:center" required>
+                                    </div>
+
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit" id="btnGuardar" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                        <div class="col">
+                                            <button type="reset" id="btnCancelar" class="btn btn-danger">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                            </form>
 
 
             </div>
@@ -238,7 +340,8 @@
 
 
 
-            </div>
+
+
         </div>
     </div>
 </div>
@@ -252,12 +355,16 @@
     <p>Desarrollado por Miguel Romero Gallegos. 2018</p>
 </footer>
 
-
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script type="text/javascript" src="app.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+ 
+
 </body>
 </html>
