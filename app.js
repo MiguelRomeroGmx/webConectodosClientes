@@ -27,6 +27,8 @@ var btnAgregar = document.getElementById("btnAgregar");
 var btnEliminar = document.getElementById("btnEliminar");
 var btnGuardar = document.getElementById("btnGuardar");
 var btnCancelar = document.getElementById("btnCancelar");
+var selector1 = document.getElementById("selector");
+var numClientes = document.getElementById("numClientes");
 
 //var selectorCliente = "CONECT-003";
 var cliente = selector.toLowerCase();
@@ -52,9 +54,38 @@ var apSeleccionado;
 var ipSeleccionada;
 var adeudoSeleccionado;
 
+
+var cantClientes = firebase.database().ref().child("clientes/cantidad");
+
+cantClientes.on("value", function (snaptshot) {
+   cantClientes = snaptshot.val();
+
+   console.log(cantClientes);
+    for (let i = 1; i <= cantClientes; i++) {
+        // console.log(i);
+        numClientes.innerHTML = cantClientes;
+        var c = i.toString();
+        if (c<10) {
+            var codigo = firebase.database().ref().child("clientes/conect-00" + c + "/codigo");
+        }else{       
+            var codigo = firebase.database().ref().child("clientes/conect-0" + c + "/codigo");
+        }
+        codigo.on("value", function (snaptshot) {
+            codigo = snaptshot.val();
+            console.log(codigo);
+            var x = document.getElementById("selector");
+            var option = document.createElement("option");
+            codigo = codigo.toUpperCase();
+            option.text = codigo;
+            x.add(option);
+        });                  
+    };
+});
+
+
 function ShowSelected(){
 selector = document.getElementById("selector").value;
-cliente = selector;
+cliente = selector.toLowerCase();
 printCliente.innerHTML = selector.toUpperCase();
 
 
@@ -67,6 +98,9 @@ var adeudo = firebase.database().ref().child("clientes/" + cliente + "/adeudo");
 var antena = firebase.database().ref().child("clientes/" + cliente + "/antena");
 var ip = firebase.database().ref().child("clientes/" + cliente + "/ip");
 var ap = firebase.database().ref().child("clientes/" + cliente + "/ap");
+
+
+
 
 paquete.on("value", function(snaptshot){
 	paquete = snaptshot.val();
@@ -334,6 +368,11 @@ var validarAdeudo = function () {
              firebase.database().ref("clientes/" + codigoAsignado + "/ap" ).set(apSeleccionado);
              firebase.database().ref("clientes/" + codigoAsignado + "/ip" ).set(ipSeleccionada);
              firebase.database().ref("clientes/" + codigoAsignado + "/adeudo" ).set(adeudoSeleccionado);
+             firebase.database().ref("clientes/" + codigoAsignado + "/codigo" ).set(codigoAsignado);
+             cantClientes ++;
+             firebase.database().ref("clientes/cantidad").set(cantClientes);
+
+            //  selector1.insertAdjacentHTML("beforeend","<option>Element</option>");
                           
              alert("Cliente agregado exitosamente");
             
