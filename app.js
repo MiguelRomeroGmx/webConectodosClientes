@@ -39,6 +39,7 @@ var validacionProximoPago;
 var validacionAntena;
 var validacionAp;
 var validacionIp;
+var validacionAdeudo;
 
 var codigoAsignado;
 var paqSeleccionado;
@@ -49,6 +50,7 @@ var proximoPagoSeleccionado;
 var antenaSeleccionada;
 var apSeleccionado;
 var ipSeleccionada;
+var adeudoSeleccionado;
 
 function ShowSelected(){
 selector = document.getElementById("selector").value;
@@ -291,6 +293,11 @@ var validarIp = function () {
     }
 };
 
+var validarAdeudo = function () {
+  validacionAdeudo = true;
+  adeudoSeleccionado = formAgregar.agrAdeudo.value;  
+};
+
  function validar() {
         validarCodigo();
         validarPaquete();
@@ -301,6 +308,7 @@ var validarIp = function () {
         validarAntena();
         validarAp();
         validarIp();
+        validarAdeudo();
 
         if (validacionCodigo == true && validacionPaquete == true && validacionCosto == true && validacionFechaInicio == true && validacionUltimoPago == true && 
             validacionProximoPago == true && validacionAntena == true && validacionAp == true && validacionIp == true) {
@@ -314,11 +322,21 @@ var validarIp = function () {
              console.log("Antena seleccionada: " + antenaSeleccionada);
              console.log("AP selecionado: " + apSeleccionado);
              console.log("IP asiganada: " + ipSeleccionada);
+             console.log("Adedudo: " + adeudoSeleccionado);
              
+            
+             firebase.database().ref("clientes/" + codigoAsignado + "/paq" ).set(paqSeleccionado);
+             firebase.database().ref("clientes/" + codigoAsignado + "/costo" ).set(rentaSeleccionada);
+             firebase.database().ref("clientes/" + codigoAsignado + "/inicio" ).set(fechaInicioSeleccionada);
+             firebase.database().ref("clientes/" + codigoAsignado + "/ultPago" ).set(ultimoPagoSeleccionado);
+             firebase.database().ref("clientes/" + codigoAsignado + "/proxPago" ).set(proximoPagoSeleccionado);
+             firebase.database().ref("clientes/" + codigoAsignado + "/antena" ).set(antenaSeleccionada);
+             firebase.database().ref("clientes/" + codigoAsignado + "/ap" ).set(apSeleccionado);
+             firebase.database().ref("clientes/" + codigoAsignado + "/ip" ).set(ipSeleccionada);
+             firebase.database().ref("clientes/" + codigoAsignado + "/adeudo" ).set(adeudoSeleccionado);
+                          
              alert("Cliente agregado exitosamente");
-             
-                         
-
+            
         }
        
         
