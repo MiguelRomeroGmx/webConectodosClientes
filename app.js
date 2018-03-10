@@ -156,16 +156,15 @@ ap.on("value", function(snaptshot){
 	console.log(ap);
 });
 
-
 }
-
-
 
 
 btnAgregar.addEventListener("click", function () {
     console.log("Agregar");
     $("#formAgregar").removeClass("collapse");
     $("#tablaClientes").addClass("collapse");
+
+    // Crear codigo cliente de forma automatica
     
 });
 
