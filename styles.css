@@ -16,8 +16,13 @@ padding: 10px;
 
 }
 
+.row{
+    padding: 10px;
+}
+
 .btn{
     font-size: 12px;
+    
 }
 
 .table{
