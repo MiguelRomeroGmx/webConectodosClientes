@@ -163,8 +163,19 @@ btnAgregar.addEventListener("click", function () {
     console.log("Agregar");
     $("#formAgregar").removeClass("collapse");
     $("#tablaClientes").addClass("collapse");
+    validacionCodigo = true;
+    var nuevoCliente = (cantClientes + 1).toString();
+    if (cantClientes < 10) {
+        codigoAsignado = "conect-00" + nuevoCliente;
+    }else{
 
-    // Crear codigo cliente de forma automatica
+    
+    codigoAsignado = "conect-0" + nuevoCliente;
+    }
+    var nuevoCodigo = codigoAsignado.toUpperCase();
+    console.log(nuevoCodigo);
+    agrCodCliente.innerHTML = nuevoCodigo;
+
     
 });
 
@@ -189,6 +200,7 @@ btnGuardar.addEventListener("click", function () {
     console.log("Guardar");
     var formulario = document.getElementsByName('formAgregar')[0],
     elementos = formAgregar.elements;
+
     validar();    
 });
 
@@ -202,16 +214,19 @@ btnCancelar.addEventListener("click", function () {
 
 var validarCodigo = function () {
     
-    if (formAgregar.agrCodCliente.value == 0) {
-        validacionCodigo = false;
-        alert("Completa el campo Código cliente");
-        // e.preventDefault();
-    }
-    else{
-        console.log("validar codigo");
-        codigoAsignado = agrCodCliente.value;
-        validacionCodigo = true;
-    }
+
+
+
+    // if (formAgregar.agrCodCliente.value == 0) {
+    //     validacionCodigo = false;
+    //     alert("Completa el campo Código cliente");
+    //     // e.preventDefault();
+    // }
+    // else{
+    //     console.log("validar codigo");
+    //     codigoAsignado = agrCodCliente.value;
+    //     validacionCodigo = true;
+    // }
 };
 
 var validarPaquete = function () {
@@ -332,7 +347,7 @@ var validarAdeudo = function () {
 };
 
  function validar() {
-        validarCodigo();
+       // validarCodigo();
         validarPaquete();
         validarRenta();
         validarFechaInicio();
