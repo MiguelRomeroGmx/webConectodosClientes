@@ -30,6 +30,18 @@ var btnCancelar = document.getElementById("btnCancelar");
 var selector1 = document.getElementById("selector");
 var numClientes = document.getElementById("numClientes");
 
+var paquete;
+var costo;
+var inicio;
+var ultPago;
+var proxPago;
+var adeudo;
+var antena;
+var ip;
+var ap;
+
+
+
 //var selectorCliente = "CONECT-003";
 var cliente = selector.toLowerCase();
 var validacionCodigo;
@@ -53,7 +65,8 @@ var antenaSeleccionada;
 var apSeleccionado;
 var ipSeleccionada;
 var adeudoSeleccionado;
-
+var confirmEditar;
+var msgAgregar;
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
@@ -89,15 +102,15 @@ cliente = selector.toLowerCase();
 printCliente.innerHTML = selector.toUpperCase();
 
 
-var paquete = firebase.database().ref().child("clientes/" + cliente + "/paq");
-var costo = firebase.database().ref().child("clientes/" + cliente + "/costo");
-var inicio = firebase.database().ref().child("clientes/" + cliente + "/inicio");
-var ultPago = firebase.database().ref().child("clientes/" + cliente + "/ultPago");
-var proxPago = firebase.database().ref().child("clientes/" + cliente + "/proxPago");
-var adeudo = firebase.database().ref().child("clientes/" + cliente + "/adeudo");
-var antena = firebase.database().ref().child("clientes/" + cliente + "/antena");
-var ip = firebase.database().ref().child("clientes/" + cliente + "/ip");
-var ap = firebase.database().ref().child("clientes/" + cliente + "/ap");
+paquete = firebase.database().ref().child("clientes/" + cliente + "/paq");
+costo = firebase.database().ref().child("clientes/" + cliente + "/costo");
+inicio = firebase.database().ref().child("clientes/" + cliente + "/inicio");
+ultPago = firebase.database().ref().child("clientes/" + cliente + "/ultPago");
+proxPago = firebase.database().ref().child("clientes/" + cliente + "/proxPago");
+adeudo = firebase.database().ref().child("clientes/" + cliente + "/adeudo");
+antena = firebase.database().ref().child("clientes/" + cliente + "/antena");
+ip = firebase.database().ref().child("clientes/" + cliente + "/ip");
+ap = firebase.database().ref().child("clientes/" + cliente + "/ap");
 
 
 
@@ -164,6 +177,7 @@ btnAgregar.addEventListener("click", function () {
     $("#formAgregar").removeClass("collapse");
     $("#tablaClientes").addClass("collapse");
     validacionCodigo = true;
+    confirmEditar = 0;
     var nuevoCliente = (cantClientes + 1).toString();
     if (cantClientes < 10) {
         codigoAsignado = "conect-00" + nuevoCliente;
@@ -184,7 +198,11 @@ btnEditar.addEventListener("click", function () {
    console.log("Editar");
     $("#formAgregar").removeClass("collapse");
     $("#tablaClientes").addClass("collapse");
-    
+    confirmEditar = 1;
+    validacionCodigo = true;
+     var formulario = document.getElementsByName('formAgregar')[0],
+         elementos = formAgregar.elements;
+    editar(cliente);
 });
 
 
@@ -200,7 +218,6 @@ btnGuardar.addEventListener("click", function () {
     console.log("Guardar");
     var formulario = document.getElementsByName('formAgregar')[0],
     elementos = formAgregar.elements;
-
     validar();    
 });
 
@@ -214,19 +231,6 @@ btnCancelar.addEventListener("click", function () {
 
 var validarCodigo = function () {
     
-
-
-
-    // if (formAgregar.agrCodCliente.value == 0) {
-    //     validacionCodigo = false;
-    //     alert("Completa el campo Código cliente");
-    //     // e.preventDefault();
-    // }
-    // else{
-    //     console.log("validar codigo");
-    //     codigoAsignado = agrCodCliente.value;
-    //     validacionCodigo = true;
-    // }
 };
 
 var validarPaquete = function () {
@@ -372,25 +376,94 @@ var validarAdeudo = function () {
              console.log("IP asiganada: " + ipSeleccionada);
              console.log("Adedudo: " + adeudoSeleccionado);
              
-            
-             firebase.database().ref("clientes/" + codigoAsignado + "/paq" ).set(paqSeleccionado);
-             firebase.database().ref("clientes/" + codigoAsignado + "/costo" ).set(rentaSeleccionada);
-             firebase.database().ref("clientes/" + codigoAsignado + "/inicio" ).set(fechaInicioSeleccionada);
-             firebase.database().ref("clientes/" + codigoAsignado + "/ultPago" ).set(ultimoPagoSeleccionado);
-             firebase.database().ref("clientes/" + codigoAsignado + "/proxPago" ).set(proximoPagoSeleccionado);
-             firebase.database().ref("clientes/" + codigoAsignado + "/antena" ).set(antenaSeleccionada);
-             firebase.database().ref("clientes/" + codigoAsignado + "/ap" ).set(apSeleccionado);
-             firebase.database().ref("clientes/" + codigoAsignado + "/ip" ).set(ipSeleccionada);
-             firebase.database().ref("clientes/" + codigoAsignado + "/adeudo" ).set(adeudoSeleccionado);
-             firebase.database().ref("clientes/" + codigoAsignado + "/codigo" ).set(codigoAsignado);
-             cantClientes ++;
-             firebase.database().ref("clientes/cantidad").set(cantClientes);
+             if (confirmEditar == 0) {
+                 cantClientes++;
+                 msgAgregar = 1;
+             } else{
+                 msgAgregar = 0;
+             }
+             
+             
+            actualizarBd();
 
-            //  selector1.insertAdjacentHTML("beforeend","<option>Element</option>");
-                          
-             alert("Cliente agregado exitosamente");
-            
+             
         }
        
         
+    };
+
+    function actualizarBd() {
+        firebase.database().ref("clientes/" + codigoAsignado + "/paq").set(paqSeleccionado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/costo").set(rentaSeleccionada);
+        firebase.database().ref("clientes/" + codigoAsignado + "/inicio").set(fechaInicioSeleccionada);
+        firebase.database().ref("clientes/" + codigoAsignado + "/ultPago").set(ultimoPagoSeleccionado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/proxPago").set(proximoPagoSeleccionado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/antena").set(antenaSeleccionada);
+        firebase.database().ref("clientes/" + codigoAsignado + "/ap").set(apSeleccionado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/ip").set(ipSeleccionada);
+        firebase.database().ref("clientes/" + codigoAsignado + "/adeudo").set(adeudoSeleccionado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/codigo").set(codigoAsignado);
+        firebase.database().ref("clientes/cantidad").set(cantClientes);
+
+        if (msgAgregar == 1) {
+           alert("Cliente agregado exitosamente");
+        }else{   
+            alert("Cliente editado exitosamente");
+        }
+    };
+
+    function editar() {
+        console.log(cliente);
+        var editCliente = cliente.toUpperCase();
+        agrCodCliente.innerHTML = editCliente;
+        editarCliente.innerHTML = "Editar Cliente: ";
+        codigoAsignado = cliente;
+
+        
+        formAgregar.agrAdeudo.value = adeudo;
+        formAgregar.agrProxPago.value = proxPago;
+        formAgregar.agrUltPago.value = ultPago;
+        formAgregar.agrFechaInicio.value = inicio;
+        formAgregar.agrIp.value = ip;
+        formAgregar.agrAp.value = ap;
+        formAgregar.agrAntena.value = antena;
+        
+        console.log(paquete);
+        console.log(costo);
+        
+       switch (paquete) {
+            case "3 MB":
+               formAgregar.agrPaq1.checked = true;
+               break;
+            case "5 MB":
+                formAgregar.agrPaq2.checked = true;
+                break;
+            case "7 MB":
+                formAgregar.agrPaq3.checked = true;
+                break;
+            case "10 MB":
+                formAgregar.agrPaq4.checked = true;
+       
+           default:
+               break;
+       }
+    
+       switch (costo) {
+            case "$400.00":
+               formAgregar.agrCosto1.checked = true;
+               break;
+            case "$600.00":
+                formAgregar.agrCosto2.checked = true;
+                break;
+            case "$800.00":
+                formAgregar.agrCosto3.checked = true;
+                break;
+            case "$1,000.00":
+                formAgregar.agrCosto4.checked = true;
+                break;
+           default:
+               break;
+       }
+        
+
     };
