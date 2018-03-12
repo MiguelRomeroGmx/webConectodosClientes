@@ -69,21 +69,23 @@ var ipSeleccionada;
 var adeudoSeleccionado;
 var confirmEditar;
 var msgAgregar;
+var clientesActivos;
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
 cantClientes.on("value", function (snaptshot) {
+    let cantActivos = 0;
    cantClientes = snaptshot.val();
-
+   
    console.log(cantClientes);
     for (let i = 1; i <= cantClientes; i++) {
-        // console.log(i);
-        numClientes.innerHTML = cantClientes;
         var c = i.toString();
         if (c<10) {
             var codigo = firebase.database().ref().child("clientes/conect-00" + c + "/codigo");
+            var cantEstado = firebase.database().ref().child("clientes/conect-00" + c + "/estado")
         }else{       
             var codigo = firebase.database().ref().child("clientes/conect-0" + c + "/codigo");
+            var cantEstado = firebase.database().ref().child("clientes/conect-0" + c + "/estado")
         }
         codigo.on("value", function (snaptshot) {
             codigo = snaptshot.val();
@@ -93,8 +95,20 @@ cantClientes.on("value", function (snaptshot) {
             codigo = codigo.toUpperCase();
             option.text = codigo;
             x.add(option);
-        });                  
+        });
+        
+        cantEstado.on("value", function (snaptshot) {
+           cantEstado = snaptshot.val();
+           if (cantEstado == "ACTIVO") {
+              cantActivos++;
+            //   console.log(cantActivos);
+               numClientes.innerHTML = cantActivos;
+               clientesActivos = cantActivos;
+           } 
+        });
+        
     };
+    
 });
 
 
@@ -483,14 +497,19 @@ var validarAdeudo = function () {
          codigoAsignado = cliente;
          estado = "INACTIVO";
          printStatus.innerHTML = estado;
+         clientesActivos--;
+         numClientes.innerHTML = clientesActivos;
          firebase.database().ref("clientes/" + codigoAsignado + "/estado").set(estado);
           alert("Cliente desactivado exitosamente");
+          
     };
 
     function activar() {
         codigoAsignado = cliente;
         estado = "ACTIVO";
         printStatus.innerHTML = estado;
+        clientesActivos++;
+        numClientes.innerHTML = clientesActivos;
         firebase.database().ref("clientes/" + codigoAsignado + "/estado").set(estado);
         alert("Cliente activado exitosamente");
     };
