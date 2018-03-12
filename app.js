@@ -11,6 +11,7 @@ var config = {
 
 var database = firebase.database();
 
+var printStatus = document.getElementById("printStatus");
 var printPaquete = document.getElementById("printPaquete");
 var printCosto = document.getElementById("printCosto");
 var printInicio = document.getElementById("printInicio");
@@ -24,7 +25,7 @@ var printCliente = document.getElementById("printCliente");
 var selector = document.getElementById("selector").value;
 var btnEditar = document.getElementById("btnEditar");
 var btnAgregar = document.getElementById("btnAgregar");
-var btnEliminar = document.getElementById("btnEliminar");
+var btnActivar = document.getElementById("btnActivar");
 var btnGuardar = document.getElementById("btnGuardar");
 var btnCancelar = document.getElementById("btnCancelar");
 var selector1 = document.getElementById("selector");
@@ -39,6 +40,7 @@ var adeudo;
 var antena;
 var ip;
 var ap;
+var estado;
 
 
 
@@ -111,8 +113,18 @@ adeudo = firebase.database().ref().child("clientes/" + cliente + "/adeudo");
 antena = firebase.database().ref().child("clientes/" + cliente + "/antena");
 ip = firebase.database().ref().child("clientes/" + cliente + "/ip");
 ap = firebase.database().ref().child("clientes/" + cliente + "/ap");
+estado = firebase.database().ref().child("clientes/" + cliente + "/estado");
 
 
+estado.on("value", function (snaptshot) {
+   estado = snaptshot.val();
+   printStatus.innerHTML = estado;
+   if (estado == "ACTIVO") {
+       btnActivar.innerHTML = "DESACTIVAR";
+   } else{
+       btnActivar.innerHTML = "ACTIVAR";
+   }
+});
 
 
 paquete.on("value", function(snaptshot){
@@ -178,19 +190,16 @@ btnAgregar.addEventListener("click", function () {
     $("#tablaClientes").addClass("collapse");
     validacionCodigo = true;
     confirmEditar = 0;
+    estado = "ACTIVO";
     var nuevoCliente = (cantClientes + 1).toString();
     if (cantClientes < 10) {
         codigoAsignado = "conect-00" + nuevoCliente;
     }else{
-
-    
     codigoAsignado = "conect-0" + nuevoCliente;
     }
     var nuevoCodigo = codigoAsignado.toUpperCase();
     console.log(nuevoCodigo);
-    agrCodCliente.innerHTML = nuevoCodigo;
-
-    
+    agrCodCliente.innerHTML = nuevoCodigo;  
 });
 
 
@@ -206,11 +215,14 @@ btnEditar.addEventListener("click", function () {
 });
 
 
-
-btnEliminar.addEventListener("click", function () {
+btnActivar.addEventListener("click", function () {
     console.log("Eliminar");
-
-
+    if (estado == "ACTIVO") {
+        desactivar(cliente);
+    }else{
+        activar(cliente);
+    }
+    
     
 });
 
@@ -393,6 +405,7 @@ var validarAdeudo = function () {
     };
 
     function actualizarBd() {
+        firebase.database().ref("clientes/" + codigoAsignado + "/status").set(estado);
         firebase.database().ref("clientes/" + codigoAsignado + "/paq").set(paqSeleccionado);
         firebase.database().ref("clientes/" + codigoAsignado + "/costo").set(rentaSeleccionada);
         firebase.database().ref("clientes/" + codigoAsignado + "/inicio").set(fechaInicioSeleccionada);
@@ -464,6 +477,20 @@ var validarAdeudo = function () {
            default:
                break;
        }
-        
+    };
 
+    function desactivar() {
+         codigoAsignado = cliente;
+         estado = "INACTIVO";
+         printStatus.innerHTML = estado;
+         firebase.database().ref("clientes/" + codigoAsignado + "/estado").set(estado);
+          alert("Cliente desactivado exitosamente");
+    };
+
+    function activar() {
+        codigoAsignado = cliente;
+        estado = "ACTIVO";
+        printStatus.innerHTML = estado;
+        firebase.database().ref("clientes/" + codigoAsignado + "/estado").set(estado);
+        alert("Cliente activado exitosamente");
     };
