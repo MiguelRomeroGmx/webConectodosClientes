@@ -69,7 +69,7 @@ var ipSeleccionada;
 var adeudoSeleccionado;
 var confirmEditar;
 var msgAgregar;
-var clientesActivos;
+
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
@@ -103,7 +103,6 @@ cantClientes.on("value", function (snaptshot) {
               cantActivos++;
             //   console.log(cantActivos);
                numClientes.innerHTML = cantActivos;
-               clientesActivos = cantActivos;
            } 
         });
         
@@ -497,9 +496,8 @@ var validarAdeudo = function () {
          codigoAsignado = cliente;
          estado = "INACTIVO";
          printStatus.innerHTML = estado;
-         clientesActivos--;
-         numClientes.innerHTML = clientesActivos;
          firebase.database().ref("clientes/" + codigoAsignado + "/estado").set(estado);
+         clientesActivos();
           alert("Cliente desactivado exitosamente");
           
     };
@@ -508,8 +506,30 @@ var validarAdeudo = function () {
         codigoAsignado = cliente;
         estado = "ACTIVO";
         printStatus.innerHTML = estado;
-        clientesActivos++;
-        numClientes.innerHTML = clientesActivos;
         firebase.database().ref("clientes/" + codigoAsignado + "/estado").set(estado);
+        clientesActivos();
         alert("Cliente activado exitosamente");
     };
+
+
+   function clientesActivos() {
+    let cantActivos = 0;
+     for (let i = 1; i <= cantClientes; i++) {
+         var c = i.toString();
+         if (c < 10) {
+             var cantEstado = firebase.database().ref().child("clientes/conect-00" + c + "/estado")
+         } else {
+             var cantEstado = firebase.database().ref().child("clientes/conect-0" + c + "/estado")
+         }
+         
+         cantEstado.on("value", function (snaptshot) {
+             cantEstado = snaptshot.val();
+             if (cantEstado == "ACTIVO") {
+                 cantActivos++;
+                 numClientes.innerHTML = cantActivos;
+             }
+         });
+
+     };
+    
+   };
