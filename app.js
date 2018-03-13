@@ -30,6 +30,7 @@ var btnGuardar = document.getElementById("btnGuardar");
 var btnCancelar = document.getElementById("btnCancelar");
 var selector1 = document.getElementById("selector");
 var numClientes = document.getElementById("numClientes");
+var registrarPago = document.getElementById("registrarPago");
 
 var paquete;
 var costo;
