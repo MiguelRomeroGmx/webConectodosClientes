@@ -30,7 +30,7 @@ var btnGuardar = document.getElementById("btnGuardar");
 var btnCancelar = document.getElementById("btnCancelar");
 var selector1 = document.getElementById("selector");
 var numClientes = document.getElementById("numClientes");
-var registrarPago = document.getElementById("registrarPago");
+var btnRegistrarPago = document.getElementById("registrarPago");
 
 var paquete;
 var costo;
@@ -134,9 +134,9 @@ estado.on("value", function (snaptshot) {
    estado = snaptshot.val();
    printStatus.innerHTML = estado;
    if (estado == "ACTIVO") {
-       btnActivar.innerHTML = "DESACTIVAR";
+       btnActivar.innerHTML = "Desactivar";
    } else{
-       btnActivar.innerHTML = "ACTIVAR";
+       btnActivar.innerHTML = "Activar";
    }
 });
 
@@ -253,6 +253,13 @@ btnCancelar.addEventListener("click", function () {
     $("#tablaClientes").removeClass("collapse");
 
     
+});
+
+btnRegistrarPago.addEventListener("click", function () {
+    $("#formRegPago").removeClass("collapse");
+    $("#tablaClientes").addClass("collapse"); 
+
+
 });
 
 var validarCodigo = function () {
