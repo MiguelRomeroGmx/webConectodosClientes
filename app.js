@@ -31,6 +31,8 @@ var btnCancelar = document.getElementById("btnCancelar");
 var selector1 = document.getElementById("selector");
 var numClientes = document.getElementById("numClientes");
 var btnRegistrarPago = document.getElementById("registrarPago");
+var btnGuardarPago = document.getElementById("btnGuardarPago");
+var btnCancelarPago = document.getElementById("btnCancelarPago");
 
 var paquete;
 var costo;
@@ -247,12 +249,23 @@ btnGuardar.addEventListener("click", function () {
     validar();    
 });
 
+btnRegistrarPago.addEventListener("click", function () {
+   var formularioPago = document.getElementById('formRegPago')[0],
+   elementos2 = formRegPago.elements;
+   validarPago(); 
+});
+
 btnCancelar.addEventListener("click", function () {
     console.log("Cancelar");
     $("#formAgregar").addClass("collapse");
     $("#tablaClientes").removeClass("collapse");
 
     
+});
+
+btnCancelarPago.addEventListener("click", function () {
+    $("#formRegPago").addClass("collapse");
+    $("#tablaClientes").removeClass("collapse");
 });
 
 btnRegistrarPago.addEventListener("click", function () {
@@ -539,5 +552,10 @@ var validarAdeudo = function () {
          });
 
      };
+    
+   };
+
+   function validarPago() {
+       
     
    };
