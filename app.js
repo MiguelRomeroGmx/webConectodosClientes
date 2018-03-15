@@ -49,6 +49,7 @@ var numPago;
 var rgAdeudo;
 var cantidadPagos;
 
+
 var cliente = selector.toLowerCase();
 var validacionCodigo;
 var validacionPaquete;
@@ -138,6 +139,7 @@ ip = firebase.database().ref().child("clientes/" + cliente + "/ip");
 ap = firebase.database().ref().child("clientes/" + cliente + "/ap");
 estado = firebase.database().ref().child("clientes/" + cliente + "/estado");
 cantidadPagos = firebase.database().ref().child("clientes/" + cliente + "/cantPagos");
+
 
 cantidadPagos.on("value", function (snaptshot) {
    cantidadPagos = snaptshot.val(); 
@@ -459,7 +461,7 @@ var validarAdeudo = function () {
     };
 
     function actualizarBd() {
-        firebase.database().ref("clientes/" + codigoAsignado + "/status").set(estado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/estado").set("ACTIVO");
         firebase.database().ref("clientes/" + codigoAsignado + "/paq").set(paqSeleccionado);
         firebase.database().ref("clientes/" + codigoAsignado + "/costo").set(rentaSeleccionada);
         firebase.database().ref("clientes/" + codigoAsignado + "/inicio").set(fechaInicioSeleccionada);
@@ -470,6 +472,7 @@ var validarAdeudo = function () {
         firebase.database().ref("clientes/" + codigoAsignado + "/ip").set(ipSeleccionada);
         firebase.database().ref("clientes/" + codigoAsignado + "/adeudo").set(adeudoSeleccionado);
         firebase.database().ref("clientes/" + codigoAsignado + "/codigo").set(codigoAsignado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/cantPagos").set(0);
         firebase.database().ref("clientes/cantidad").set(cantClientes);
 
         if (msgAgregar == 1) {
