@@ -44,10 +44,10 @@ var antena;
 var ip;
 var ap;
 var estado;
+var folio;
+var numPago;
+var rgAdeudo;
 
-
-
-//var selectorCliente = "CONECT-003";
 var cliente = selector.toLowerCase();
 var validacionCodigo;
 var validacionPaquete;
@@ -59,6 +59,9 @@ var validacionAntena;
 var validacionAp;
 var validacionIp;
 var validacionAdeudo;
+var validacionCantidad;
+var validacionTipoPago;
+var validacionFechaPago;
 
 var codigoAsignado;
 var paqSeleccionado;
@@ -72,6 +75,9 @@ var ipSeleccionada;
 var adeudoSeleccionado;
 var confirmEditar;
 var msgAgregar;
+var cantidadPagada;
+var tipoPago;
+var fechaPago;
 
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
@@ -249,7 +255,7 @@ btnGuardar.addEventListener("click", function () {
     validar();    
 });
 
-btnRegistrarPago.addEventListener("click", function () {
+btnGuardarPago.addEventListener("click", function () {
    var formularioPago = document.getElementById('formRegPago')[0],
    elementos2 = formRegPago.elements;
    validarPago(); 
@@ -271,7 +277,6 @@ btnCancelarPago.addEventListener("click", function () {
 btnRegistrarPago.addEventListener("click", function () {
     $("#formRegPago").removeClass("collapse");
     $("#tablaClientes").addClass("collapse"); 
-
 
 });
 
@@ -555,7 +560,54 @@ var validarAdeudo = function () {
     
    };
 
+
+   var validarCantidad = function () {
+       if (formRegPago.agrPagoCant.value == 0) {
+           alert("Introduzca la cantidad pagada");
+           validacionCantidad = false;
+       }else{
+            validacionCantidad = true;
+            cantidadPagada = agrPagoCant.value;
+       }
+
+   };
+
+   var validarTipoPago = function () {
+       validacionTipoPago = true;
+       tipoPago = formRegPago.tipoPago.value;
+   };
+
+   var validarFechaPago = function () {
+       if (formRegPago.fechaPago.value == 0) {
+        alert("Seleccione la Fecha del pago");
+        validacionFechaPago = false;
+    } else{
+
+        console.log("Fecha Pago");
+        validacionFechaPago = true;
+        fechaPago = fechaPago.value;
+    }
+   };
+
+
    function validarPago() {
-       
+    validarCantidad();
+    validarTipoPago();
+    validarFechaPago();   
+    
+    var hoy = new Date();
+    var mes = hoy.getMonth() + 1;
+    var year = hoy.getFullYear();
+    folio = cliente + "pgdo-" + year + "-" + mes;
+
+    rgAdeudo = adeudo;
+    adeudoPago.innerHTML = rgAdeudo;
+    clientePago.innerHTML = cliente.toUpperCase();
+    folioPago.innerHTML = folio.toUpperCase();
+    
+    console.log(cantidadPagada);
+    console.log(tipoPago);
+    console.log(fechaPago);
+    
     
    };
