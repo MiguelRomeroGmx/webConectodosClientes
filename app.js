@@ -47,6 +47,7 @@ var estado;
 var folio;
 var numPago;
 var rgAdeudo;
+var cantidadPagos;
 
 var cliente = selector.toLowerCase();
 var validacionCodigo;
@@ -136,6 +137,11 @@ antena = firebase.database().ref().child("clientes/" + cliente + "/antena");
 ip = firebase.database().ref().child("clientes/" + cliente + "/ip");
 ap = firebase.database().ref().child("clientes/" + cliente + "/ap");
 estado = firebase.database().ref().child("clientes/" + cliente + "/estado");
+cantidadPagos = firebase.database().ref().child("clientes/" + cliente + "/cantPagos");
+
+cantidadPagos.on("value", function (snaptshot) {
+   cantidadPagos = snaptshot.val(); 
+});
 
 
 estado.on("value", function (snaptshot) {
@@ -257,7 +263,7 @@ btnGuardar.addEventListener("click", function () {
 
 btnGuardarPago.addEventListener("click", function () {
    var formularioPago = document.getElementById('formRegPago')[0],
-   elementos2 = formRegPago.elements;
+   elementos = formRegPago.elements;
    validarPago(); 
 });
 
@@ -277,7 +283,16 @@ btnCancelarPago.addEventListener("click", function () {
 btnRegistrarPago.addEventListener("click", function () {
     $("#formRegPago").removeClass("collapse");
     $("#tablaClientes").addClass("collapse"); 
+    var hoy = new Date();
+    var mes = hoy.getMonth() + 1;
+    var year = hoy.getFullYear();
 
+    folio = cliente + "pgdo-" + year + "-" + mes + cantidadPagos;
+
+    rgAdeudo = adeudo;
+    adeudoPago.innerHTML = rgAdeudo;
+    clientePago.innerHTML = cliente.toUpperCase();
+    folioPago.innerHTML = folio.toUpperCase();
 });
 
 var validarCodigo = function () {
@@ -568,6 +583,8 @@ var validarAdeudo = function () {
        }else{
             validacionCantidad = true;
             cantidadPagada = agrPagoCant.value;
+            console.log(cantidadPagada);
+            
        }
 
    };
@@ -575,6 +592,8 @@ var validarAdeudo = function () {
    var validarTipoPago = function () {
        validacionTipoPago = true;
        tipoPago = formRegPago.tipoPago.value;
+       console.log(tipoPago);
+       
    };
 
    var validarFechaPago = function () {
@@ -585,7 +604,9 @@ var validarAdeudo = function () {
 
         console.log("Fecha Pago");
         validacionFechaPago = true;
-        fechaPago = fechaPago.value;
+        fechaPago = formRegPago.fechaPago.value;
+        console.log(fechaPago);
+        
     }
    };
 
@@ -595,19 +616,27 @@ var validarAdeudo = function () {
     validarTipoPago();
     validarFechaPago();   
     
-    var hoy = new Date();
-    var mes = hoy.getMonth() + 1;
-    var year = hoy.getFullYear();
-    folio = cliente + "pgdo-" + year + "-" + mes;
+    if (validacionCantidad == true && validacionTipoPago == true && validacionFechaPago == true) {
+        console.log(cantidadPagada);
+        console.log(tipoPago);
+        console.log(fechaPago);
+        adeudo = adeudo - cantidadPagada;
+        alert("Pago registrado exitosamente");
+        cantidadPagos++;
+        guardarPago();
+    }else{
+    
+    alert("validacion Incorrecta");
+    }
+   };
 
-    rgAdeudo = adeudo;
-    adeudoPago.innerHTML = rgAdeudo;
-    clientePago.innerHTML = cliente.toUpperCase();
-    folioPago.innerHTML = folio.toUpperCase();
-    
-    console.log(cantidadPagada);
-    console.log(tipoPago);
-    console.log(fechaPago);
-    
-    
+   function guardarPago() {
+      firebase.database().ref("clientes/" + cliente + "/ultPago").set(fechaPago);
+      firebase.database().ref("clientes/" + cliente + "/adeudo").set(adeudo);
+      firebase.database().ref("clientes/" + cliente + "/cantPagos").set(cantidadPagos);
+       firebase.database().ref("clientes/" + cliente + "/pagos/" + folio + "/cantidad").set(cantidadPagada);
+       firebase.database().ref("clientes/" + cliente + "/pagos/" + folio + "/tipoPago").set(tipoPago);
+       firebase.database().ref("clientes/" + cliente + "/pagos/" + folio + "/fecha").set(fechaPago);
+
+        
    };
