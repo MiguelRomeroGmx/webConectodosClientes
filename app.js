@@ -84,6 +84,24 @@ var fechaPago;
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
+var fechaActual = new Date();
+    var dia = fechaActual.getDate();
+    if (dia < 10) {
+        dia = "0" + dia;
+    }
+    var mesActual = fechaActual.getMonth() + 1;
+    if (mesActual < 10) {
+        mesActual = "0" + mesActual;
+    }
+   
+    var yearActual = fechaActual.getFullYear();
+
+    var checkFecha = yearActual + "-" + mesActual + "-" + dia;
+
+
+
+
+
 cantClientes.on("value", function (snaptshot) {
     let cantActivos = 0;
    cantClientes = snaptshot.val();
@@ -93,10 +111,14 @@ cantClientes.on("value", function (snaptshot) {
         var c = i.toString();
         if (c<10) {
             var codigo = firebase.database().ref().child("clientes/conect-00" + c + "/codigo");
-            var cantEstado = firebase.database().ref().child("clientes/conect-00" + c + "/estado")
+            var cantEstado = firebase.database().ref().child("clientes/conect-00" + c + "/estado");
+            proxPago = firebase.database().ref().child("clientes/conect-00" + c + "/proxPago");
+            adeudo = firebase.database().ref().child("clientes/conect-00" + c + "/adeudo");
         }else{       
             var codigo = firebase.database().ref().child("clientes/conect-0" + c + "/codigo");
-            var cantEstado = firebase.database().ref().child("clientes/conect-0" + c + "/estado")
+            var cantEstado = firebase.database().ref().child("clientes/conect-0" + c + "/estado");
+             proxPago = firebase.database().ref().child("clientes/conect-0" + c + "/proxPago");
+             adeudo = firebase.database().ref().child("clientes/conect-0" + c + "/adeudo");
         }
         codigo.on("value", function (snaptshot) {
             codigo = snaptshot.val();
@@ -115,6 +137,43 @@ cantClientes.on("value", function (snaptshot) {
             //   console.log(cantActivos);
                numClientes.innerHTML = cantActivos;
            } 
+        });
+
+        proxPago.on("value", function (snaptshot) {
+           proxPago = snaptshot.val();
+            if (checkFecha == proxPago) {
+        
+                    var proxMes = fechaActual.getMonth() + 2;
+                    if (proxMes < 10) {
+                        proxMes = "0" + proxMes;
+                    }
+       
+                    console.log("Pago Vencido");
+                    proxPago = yearActual + "-" + proxMes + "-" + dia;
+                    printProxPago.innerHTML = proxPago;
+                    costo = parseInt(costo);
+                    adeudo = parseInt(adeudo);
+                    adeudo += costo;
+                    printAdeudo.innerHTML = "$" + adeudo + ".00";
+                    var adeudoNuevo = "$" + adeudo + ".00";
+
+                    if (c < 10) {
+                        firebase.database().ref("clientes/conect-00" + c + "/adeudo").set(adeudo);
+                        firebase.database().ref("clientes/conect-00" + c + "/proxPago").set(proxPago);
+                    } else{
+                        firebase.database().ref("clientes/conect-0" + c + "/adeudo").set(adeudo);
+                        firebase.database().ref("clientes/conect-0" + c + "/proxPago").set(proxPago);
+                    }
+
+                    
+
+                }else{
+	                // printProxPago.innerHTML = proxPago;
+                    // console.log(proxPago);
+                    }
+
+                
+            
         });
         
     };
@@ -165,7 +224,7 @@ paquete.on("value", function(snaptshot){
 
 costo.on("value", function(snaptshot){
 	costo = snaptshot.val();
-	printCosto.innerHTML = costo;
+	printCosto.innerHTML = "$" + costo;
 	console.log(costo);
 });
 
@@ -181,17 +240,55 @@ ultPago.on("value", function(snaptshot){
 	console.log(ultPago);
 });
 
-proxPago.on("value", function(snaptshot){
-	proxPago = snaptshot.val();
-	printProxPago.innerHTML = proxPago;
-	console.log(proxPago);
-});
-
 adeudo.on("value", function(snaptshot){
 	adeudo = snaptshot.val();
 	printAdeudo.innerHTML = adeudo;
 	console.log(adeudo);
 });
+
+proxPago.on("value", function(snaptshot){
+    proxPago = snaptshot.val();
+    
+    // var fechaActual = new Date();
+    // var dia = fechaActual.getDate();
+    // if (dia < 10) {
+    //     dia = "0" + dia;
+    // }
+    // var mesActual = fechaActual.getMonth() + 1;
+    // if (mesActual < 10) {
+    //     mesActual = "0" + mesActual;
+    // }
+   
+    // var yearActual = fechaActual.getFullYear();
+
+    // var checkFecha = yearActual + "-" + mesActual + "-" + dia;
+    
+    
+    // if (checkFecha == proxPago) {
+        
+    //     var proxMes = fechaActual.getMonth() + 2;
+    //     if (proxMes < 10) {
+    //         proxMes = "0" + proxMes;
+    //     }
+       
+    //     console.log("Pago Vencido");
+    //     proxPago = yearActual + "-" + proxMes + "-" + dia;
+    //     printProxPago.innerHTML = proxPago;
+    //     costo = parseInt(costo);
+    //     adeudo = parseInt(adeudo);
+    //     adeudo += costo;
+    //     printAdeudo.innerHTML = "$" + adeudo + ".00";
+    //     var adeudoNuevo = "$" + adeudo + ".00";
+    //     firebase.database().ref("clientes/" + cliente + "/adeudo").set(adeudoNuevo);
+    //     firebase.database().ref("clientes/" + cliente + "/proxPago").set(proxPago);
+
+    // }else{
+	    printProxPago.innerHTML = proxPago;
+        console.log(proxPago);
+    // }
+});
+
+
 
 antena.on("value", function(snaptshot){
 	antena = snaptshot.val();
@@ -640,6 +737,5 @@ var validarAdeudo = function () {
        firebase.database().ref("clientes/" + cliente + "/pagos/" + folio + "/cantidad").set(cantidadPagada);
        firebase.database().ref("clientes/" + cliente + "/pagos/" + folio + "/tipoPago").set(tipoPago);
        firebase.database().ref("clientes/" + cliente + "/pagos/" + folio + "/fecha").set(fechaPago);
-
-        
    };
+
