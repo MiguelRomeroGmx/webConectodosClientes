@@ -730,16 +730,16 @@ var validarAdeudo = function () {
        }
     
        switch (costo) {
-            case "$400.00":
+            case "400.00":
                formAgregar.agrCosto1.checked = true;
                break;
-            case "$600.00":
+            case "600.00":
                 formAgregar.agrCosto2.checked = true;
                 break;
-            case "$800.00":
+            case "800.00":
                 formAgregar.agrCosto3.checked = true;
                 break;
-            case "$1,000.00":
+            case "1000.00":
                 formAgregar.agrCosto4.checked = true;
                 break;
            default:
