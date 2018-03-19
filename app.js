@@ -99,6 +99,7 @@ var fechaActual = new Date();
 
     var checkFecha = yearActual + "-" + mesActual + "-" + dia;
 
+console.log(checkFecha);
 
 
 
@@ -106,101 +107,192 @@ var fechaActual = new Date();
 cantClientes.on("value", function (snaptshot) {
     let cantActivos = 0;
    cantClientes = snaptshot.val();
-   
    console.log(cantClientes);
+
     for (let i = 1; i <= cantClientes; i++) {
         c = i.toString();
         console.log(c);
-        
-        if (c<10) {
+
+        if (i < 10) {
             var codigo = firebase.database().ref().child("clientes/conect-00" + c + "/codigo");
             var cantEstado = firebase.database().ref().child("clientes/conect-00" + c + "/estado");
-            proxPago = firebase.database().ref().child("clientes/conect-00" + c + "/proxPago");
-            adeudo = firebase.database().ref().child("clientes/conect-00" + c + "/adeudo");
-            costo = firebase.database().ref().child("clientes/conect-00" + c + "/costo");
-        }else{       
+            var proxPago = firebase.database().ref().child("clientes/conect-00" + c + "/proxPago");
+            var adeudo = firebase.database().ref().child("clientes/conect-00" + c + "/adeudo");
+            var costo = firebase.database().ref().child("clientes/conect-00" + c + "/costo");
+
+            adeudo.on("value", function (snaptshot) {
+                adeudo = snaptshot.val();
+            });
+
+            costo.on("value", function (snaptshot) {
+                costo = snaptshot.val();
+            });
+
+            proxPago.on("value", function (snaptshot) {
+                proxPago = snaptshot.val();
+                console.log(proxPago);
+                console.log(checkFecha);
+
+
+            });
+
+            codigo.on("value", function (snaptshot) {
+                codigo = snaptshot.val();
+                console.log(codigo);
+                var x = document.getElementById("selector");
+                var option = document.createElement("option");
+                codigo = codigo.toUpperCase();
+                option.text = codigo;
+                x.add(option);
+            });
+
+            cantEstado.on("value", function (snaptshot) {
+                cantEstado = snaptshot.val();
+                if (cantEstado == "ACTIVO") {
+                    cantActivos++;
+                    //   console.log(cantActivos);
+                    numClientes.innerHTML = cantActivos;
+                }
+            });
+
+        } else {
             var codigo = firebase.database().ref().child("clientes/conect-0" + c + "/codigo");
             var cantEstado = firebase.database().ref().child("clientes/conect-0" + c + "/estado");
-             proxPago = firebase.database().ref().child("clientes/conect-0" + c + "/proxPago");
-             adeudo = firebase.database().ref().child("clientes/conect-0" + c + "/adeudo");
-             costo = firebase.database().ref().child("clientes/conect-0" + c + "/costo");
+            var proxPago = firebase.database().ref().child("clientes/conect-0" + c + "/proxPago");
+            var adeudo = firebase.database().ref().child("clientes/conect-0" + c + "/adeudo");
+            var costo = firebase.database().ref().child("clientes/conect-0" + c + "/costo");
+
+            adeudo.on("value", function (snaptshot) {
+                adeudo = snaptshot.val();
+                console.log(adeudo);
+
+            });
+
+            costo.on("value", function (snaptshot) {
+                costo = snaptshot.val();
+                console.log(costo);
+
+            });
+
+            proxPago.on("value", function (snaptshot) {
+                proxPago = snaptshot.val();
+                console.log(proxPago);
+                console.log(checkFecha);
+
+
+            });
+
+            codigo.on("value", function (snaptshot) {
+                codigo = snaptshot.val();
+                console.log(codigo);
+                var x = document.getElementById("selector");
+                var option = document.createElement("option");
+                codigo = codigo.toUpperCase();
+                option.text = codigo;
+                x.add(option);
+            });
+
+            cantEstado.on("value", function (snaptshot) {
+                cantEstado = snaptshot.val();
+                if (cantEstado == "ACTIVO") {
+                    cantActivos++;
+                    //   console.log(cantActivos);
+                    numClientes.innerHTML = cantActivos;
+                }
+            });
         }
-        codigo.on("value", function (snaptshot) {
-            codigo = snaptshot.val();
-            console.log(codigo);
-            var x = document.getElementById("selector");
-            var option = document.createElement("option");
-            codigo = codigo.toUpperCase();
-            option.text = codigo;
-            x.add(option);
-        });
-        
-        cantEstado.on("value", function (snaptshot) {
-           cantEstado = snaptshot.val();
-           if (cantEstado == "ACTIVO") {
-              cantActivos++;
-            //   console.log(cantActivos);
-               numClientes.innerHTML = cantActivos;
-           } 
-        });
 
-        adeudo.on("value", function (snaptshot) {
-           adeudo = snaptshot.val(); 
-        });
+        if (checkFecha == proxPago) {
+            console.log("Pago Vencido");
+            var proxMes = fechaActual.getMonth() + 2;
+            if (proxMes < 10) {
+                proxMes = "0" + proxMes;
+            }
 
-        costo.on("value", function (snaptshot) {
-            costo = snaptshot.val();
-        });
 
-        proxPago.on("value", function (snaptshot) {
-           proxPago = snaptshot.val();
-            if (checkFecha == proxPago) {
-        
-                    var proxMes = fechaActual.getMonth() + 2;
-                    if (proxMes < 10) {
-                        proxMes = "0" + proxMes;
-                    }
-       
-                    console.log("Pago Vencido");
-                    proxPago = yearActual + "-" + proxMes + "-" + dia;
-                    printProxPago.innerHTML = proxPago;
-                    costo = parseInt(costo);
-                    adeudo = parseInt(adeudo);
-                    console.log("Costo: " + costo);
-                    console.log(proxPago);
-                    
-                    var adeudoNuevo = costo + adeudo;
-                    console.log("AdeudoNuevo: " + adeudoNuevo);
-                    
-                    printAdeudo.innerHTML = "$" + adeudo + ".00";
-                    // var adeudoNuevo = "$" + adeudo + ".00";
-                    //c--;
-                    if (c < 10) {
-                        firebase.database().ref("clientes/conect-00" + c + "/adeudo").set(adeudoNuevo);
-                        firebase.database().ref("clientes/conect-00" + c + "/proxPago").set(proxPago);
-                    } else{
-                        firebase.database().ref("clientes/conect-0" + c + "/adeudo").set(adeudoNuevo);
-                        firebase.database().ref("clientes/conect-0" + c + "/proxPago").set(proxPago);
-                        console.log("subir datos");
-                        console.log("clientes/conect-0" + c + "/proxPago");
-                        
-                        
-                    }
+            proxPago = yearActual + "-" + proxMes + "-" + dia;
+            printProxPago.innerHTML = proxPago;
+            costo = parseInt(costo);
+            adeudo = parseInt(adeudo);
+            console.log("Costo: " + costo);
+            console.log(proxPago);
 
-                    
+            var adeudoNuevo = costo + adeudo;
+            console.log("AdeudoNuevo: " + adeudoNuevo);
 
-                }else{
-	                printProxPago.innerHTML = proxPago;
-                    // console.log(proxPago);
-                    }
+            printAdeudo.innerHTML = "$" + adeudo + ".00";
+            // var adeudoNuevo = "$" + adeudo + ".00";
+            //c--;
+            if (c < 10) {
+                firebase.database().ref("clientes/conect-00" + c + "/adeudo").set(adeudoNuevo);
+                firebase.database().ref("clientes/conect-00" + c + "/proxPago").set(proxPago);
+            } else {
+                firebase.database().ref("clientes/conect-0" + c + "/adeudo").set(adeudoNuevo);
+                firebase.database().ref("clientes/conect-0" + c + "/proxPago").set(proxPago);
+                console.log("subir datos");
+                console.log("clientes/conect-0" + c + "/proxPago");
 
-                
-            
-        });
-        
-    };
-    
+
+            }
+
+
+
+        } else {
+            printProxPago.innerHTML = proxPago;
+            console.log("Al corriente");
+
+            // console.log(proxPago);
+        }
+
+
+    }
+
 });
+
+
+
+    // adeudo.on("value", function (snaptshot) {
+    //     adeudo = snaptshot.val();
+    // });
+
+    // costo.on("value", function (snaptshot) {
+    //     costo = snaptshot.val();
+    // });
+
+    // proxPago.on("value", function (snaptshot) {
+    //     proxPago = snaptshot.val();
+    //     console.log(proxPago);
+    //     console.log(checkFecha);
+
+
+    // });
+
+    // codigo.on("value", function (snaptshot) {
+    //     codigo = snaptshot.val();
+    //     console.log(codigo);
+    //     var x = document.getElementById("selector");
+    //     var option = document.createElement("option");
+    //     codigo = codigo.toUpperCase();
+    //     option.text = codigo;
+    //     x.add(option);
+    // });
+
+    // cantEstado.on("value", function (snaptshot) {
+    //    cantEstado = snaptshot.val();
+    //    if (cantEstado == "ACTIVO") {
+    //       cantActivos++;
+    //     //   console.log(cantActivos);
+    //        numClientes.innerHTML = cantActivos;
+    //    } 
+    // });
+
+
+
+    
+
+
+
+
 
 
 function ShowSelected(){
