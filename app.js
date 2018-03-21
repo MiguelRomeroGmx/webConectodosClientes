@@ -81,7 +81,8 @@ var cantidadPagada;
 var tipoPago;
 var fechaPago;
 var c;
-
+var arregloCosto = [];
+var arregloAdeudo = [];
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
@@ -100,9 +101,6 @@ var fechaActual = new Date();
     var checkFecha = yearActual + "-" + mesActual + "-" + dia;
 
 console.log(checkFecha);
-
-
-
 
 cantClientes.on("value", function (snaptshot) {
     let cantActivos = 0;
@@ -130,17 +128,16 @@ cantClientes.on("value", function (snaptshot) {
 
         }
  
-
                     adeudo.on("value", function (snaptshot) {
                         adeudo = snaptshot.val();
                         console.log(adeudo);
-
+                        arregloAdeudo.push(adeudo);
                     });
 
                     costo.on("value", function (snaptshot) {
                         costo = snaptshot.val();
                         console.log(costo);
-
+                        arregloCosto.push(costo);
                     });
 
                     proxPago.on("value", function (snaptshot) {
@@ -148,31 +145,30 @@ cantClientes.on("value", function (snaptshot) {
                         console.log(proxPago);
                         console.log(checkFecha);
                         console.log(c);
-
                         if (checkFecha == proxPago) {
-
                             console.log("Pago Vencido");
                             console.log(i);
-                            
                             var proxMes = fechaActual.getMonth() + 2;
                             if (proxMes < 10) {
                                 proxMes = "0" + proxMes;
                             }
 
                             proxPago = yearActual + "-" + proxMes + "-" + dia;
-                            // printProxPago.innerHTML = proxPago;
-                            costo = parseInt(costo);
-                            adeudo = parseInt(adeudo);
-                            console.log("Costo: " + costo);
+                            var costo1 = arregloCosto[i-1];
+                            var adeudo1 = arregloAdeudo[i-1];
+                            costo1 = parseInt(costo1);
+                            adeudo1 = parseInt(adeudo1);
+                            console.log("Cliente - " + i);
+                            
+                            console.log("Adeudo: " + adeudo1);
+                            
+                            console.log("Costo: " + costo1);
                             console.log(proxPago);
 
-                            var adeudoNuevo = costo + adeudo;
+                            var adeudoNuevo = costo1 + adeudo1;
                             console.log("AdeudoNuevo: " + adeudoNuevo);
-
-                            // printAdeudo.innerHTML = "$" + adeudo + ".00";
                             var adeudoNuevoStr = adeudoNuevo.toString();
-                            // var adeudoNuevo = "$" + adeudo + ".00";
-                            //c--;
+                           
                             if (i < 10) {
                                 c = i.toString();
                                 firebase.database().ref("clientes/conect-00" + c + "/adeudo").set(adeudoNuevoStr);
@@ -188,11 +184,11 @@ cantClientes.on("value", function (snaptshot) {
                             }
 
                         } else {
-                            // printProxPago.innerHTML = proxPago;
+                            
                             console.log("Al corriente");
                             console.log(i);
                             
-                            // console.log(proxPago);
+                           
                         }
 
                     });
