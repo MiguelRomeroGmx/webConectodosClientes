@@ -428,6 +428,22 @@ btnHistorialPagos.addEventListener("click", function () {
 btnRegresar.addEventListener("click", function () {
     $("#tablaClientes").removeClass("collapse");
      $("#mostrarHistorial").addClass("collapse");
+
+     for (let index = 0; index <= cantidadPagos; index++) {
+         var x = document.getElementById("historialFolioPago");
+         var option = document.createElement("option");
+         var folioHistorial = cliente + "-pago-0" + index;
+         option.text = folioHistorial;
+         x.remove(option);
+     }
+     var x = document.getElementById("historialFolioPago");
+     var option = document.createElement("option");
+     option.text = "Elegir Folio";
+    x.add(option);
+     historialTipoPago.innerHTML = "Tipo de Pago";
+     historialCantidadPago.innerHTML = "Cantidad";
+     historialFechaPago.innerHTML = "Fecha";
+
 });
 
 
