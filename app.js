@@ -406,6 +406,7 @@ btnCancelar.addEventListener("click", function () {
 btnCancelarPago.addEventListener("click", function () {
     $("#formRegPago").addClass("collapse");
     $("#tablaClientes").removeClass("collapse");
+    cantidadPagos = cantidadPagos - 1;
 });
 
 btnRegistrarPago.addEventListener("click", function () {
