@@ -233,6 +233,21 @@ cantClientes.on("value", function (snaptshot) {
 
 function ShowSelected(){
 selector = document.getElementById("selector").value;
+if (selector == "elegir") {
+    console.log(selector);
+    
+    printCliente.innerHTML = "CLIENTE";
+    printStatus.innerHTML = "STATUS";
+    printPaquete.innerHTML = "PAQUETE";
+    printCosto.innerHTML = "COSTO";
+    printInicio.innerHTML = "INICIO";
+    printUltPago.innerHTML = "ULT PAGO";
+    printAdeudo.innerHTML = "ADEUDO";
+    printProxPago.innerHTML = "PROX PAGO";
+    printAntena.innerHTML = "ANTENA";
+    printIp.innerHTML = "DIR IP";
+    printAp.innerHTML = "AP";
+} else{
 cliente = selector.toLowerCase();
 printCliente.innerHTML = selector.toUpperCase();
 
@@ -323,7 +338,7 @@ ap.on("value", function(snaptshot){
 });
 
 }
-
+}
 
 btnAgregar.addEventListener("click", function () {
     console.log("Agregar");
@@ -439,7 +454,7 @@ btnRegresar.addEventListener("click", function () {
      var x = document.getElementById("historialFolioPago");
      var option = document.createElement("option");
      option.text = "Elegir Folio";
-    x.add(option);
+     x.add(option);
      historialTipoPago.innerHTML = "Tipo de Pago";
      historialCantidadPago.innerHTML = "Cantidad";
      historialFechaPago.innerHTML = "Fecha";
