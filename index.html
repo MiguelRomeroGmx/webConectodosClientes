@@ -338,15 +338,15 @@
                     </form>
 
                     <div id="mostrarHistorial" class="collapse">
-
+                        <h5>Historial de Pagos</h5>
                     <div class="row">
                         <div class="col">
                         <label for="exampleFormControlInput1">Folio del Pago</label>
 
-                        <select class="form-control" id="historialFolioPago" style="text-align:center">
-                            <option style="text-align:center" value="OXXO">OXXO</option>
+                        <select class="form-control" id="historialFolioPago" style="text-align:center" onchange="ShowSelected2();">
+                            <!-- <option style="text-align:center" value="OXXO">OXXO</option>
                             <option style="text-align:center" value="Deposito">Deposito</option>
-                            <option style="text-align:center" value="Efectivo">Efectivo</option>
+                            <option style="text-align:center" value="Efectivo">Efectivo</option> -->
                         </select>
                         </div>
                     </div>    
@@ -367,9 +367,11 @@
                         <div class="col">
                             <label for="exampleFormControlInput1">Fecha de Pago</label>
                             <label class="form-control" id="historialFechaPago">2018-03-15</label>
-
                         </div>
-                       
+                       <div class="col">
+                            <label for="exampleFormControlInput1">Usuario</label>
+                            <label class="form-control" id="historialCliente">2018-03-15</label>
+                       </div>
 
                     </div>
 

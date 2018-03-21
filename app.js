@@ -35,6 +35,11 @@ var btnGuardarPago = document.getElementById("btnGuardarPago");
 var btnCancelarPago = document.getElementById("btnCancelarPago");
 var btnHistorialPagos = document.getElementById("historialPagos");
 var btnRegresar = document.getElementById("btnRegresar");
+var selectorHistorial = document.getElementById("historialFolioPago");
+var historialTipoPago = document.getElementById("historialTipoPago");
+var historialCantiadPago = document.getElementById("historialCantidadPago");
+var historialFechaPago = document.getElementById("historialFechaPago");
+var historialCliente = document.getElementById("historialCliente");
 
 var paquete;
 var costo;
@@ -85,6 +90,7 @@ var fechaPago;
 var c;
 var arregloCosto = [];
 var arregloAdeudo = [];
+
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
@@ -385,11 +391,12 @@ btnCancelarPago.addEventListener("click", function () {
 btnRegistrarPago.addEventListener("click", function () {
     $("#formRegPago").removeClass("collapse");
     $("#tablaClientes").addClass("collapse"); 
-    var hoy = new Date();
-    var mes = hoy.getMonth() + 1;
-    var year = hoy.getFullYear();
+    // var hoy = new Date();
+    // var mes = hoy.getMonth() + 1;
+    // var year = hoy.getFullYear();
 
-    folio = cliente + "pgdo-" + year + "-" + mes + cantidadPagos;
+    cantidadPagos = cantidadPagos + 1;
+    folio = cliente + "-pago-0" + cantidadPagos;
 
     rgAdeudo = adeudo;
     adeudoPago.innerHTML = rgAdeudo;
@@ -398,10 +405,18 @@ btnRegistrarPago.addEventListener("click", function () {
 });
 
 btnHistorialPagos.addEventListener("click", function () {
+
+    if (cantidadPagos > 0) {
     $("#tablaClientes").addClass("collapse");
     $("#mostrarHistorial").removeClass("collapse");
     console.log("Historial pagos");
+    console.log("Pagos: " + cantidadPagos);
     
+    historial();
+    }else {
+        console.log("Pagos: " + cantidadPagos);
+        alert("No se ha registrado ningun pago");
+    }
 
 });
 
@@ -410,10 +425,6 @@ btnRegresar.addEventListener("click", function () {
      $("#mostrarHistorial").addClass("collapse");
 });
 
-
-var validarCodigo = function () {
-    
-};
 
 var validarPaquete = function () {
     console.log("validar Paquete");
@@ -739,7 +750,7 @@ var validarAdeudo = function () {
         console.log(fechaPago);
         adeudo = adeudo - cantidadPagada;
         alert("Pago registrado exitosamente");
-        cantidadPagos++;
+        // cantidadPagos++;
         guardarPago();
     }else{
     
@@ -756,3 +767,22 @@ var validarAdeudo = function () {
        firebase.database().ref("clientes/" + cliente + "/pagos/" + folio + "/fecha").set(fechaPago);
    };
 
+   var historial = function () {
+        historialCliente.innerHTML = cliente.toUpperCase();
+        console.log(cliente);
+        // folio = cliente + "pgdo-0" + cantidadPagos;
+        for (let index = 1; index <= cantidadPagos; index++) {
+           var x = document.getElementById("historialFolioPago");
+           var option = document.createElement("option");
+           var folioHistorial = cliente + "-pago-0" + index;
+           option.text = folioHistorial;
+           x.add(option);
+            
+        }
+
+   };
+
+   function ShowSelected2 () {
+       
+
+   };
