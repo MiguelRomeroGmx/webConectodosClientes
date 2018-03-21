@@ -33,6 +33,8 @@ var numClientes = document.getElementById("numClientes");
 var btnRegistrarPago = document.getElementById("registrarPago");
 var btnGuardarPago = document.getElementById("btnGuardarPago");
 var btnCancelarPago = document.getElementById("btnCancelarPago");
+var btnHistorialPagos = document.getElementById("historialPagos");
+var btnRegresar = document.getElementById("btnRegresar");
 
 var paquete;
 var costo;
@@ -187,7 +189,6 @@ cantClientes.on("value", function (snaptshot) {
                             
                             console.log("Al corriente");
                             console.log(i);
-                            
                            
                         }
 
@@ -395,6 +396,20 @@ btnRegistrarPago.addEventListener("click", function () {
     clientePago.innerHTML = cliente.toUpperCase();
     folioPago.innerHTML = folio.toUpperCase();
 });
+
+btnHistorialPagos.addEventListener("click", function () {
+    $("#tablaClientes").addClass("collapse");
+    $("#mostrarHistorial").removeClass("collapse");
+    console.log("Historial pagos");
+    
+
+});
+
+btnRegresar.addEventListener("click", function () {
+    $("#tablaClientes").removeClass("collapse");
+     $("#mostrarHistorial").addClass("collapse");
+});
+
 
 var validarCodigo = function () {
     
