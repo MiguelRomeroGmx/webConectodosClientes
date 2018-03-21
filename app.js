@@ -37,7 +37,7 @@ var btnHistorialPagos = document.getElementById("historialPagos");
 var btnRegresar = document.getElementById("btnRegresar");
 var selectorHistorial = document.getElementById("historialFolioPago");
 var historialTipoPago = document.getElementById("historialTipoPago");
-var historialCantiadPago = document.getElementById("historialCantidadPago");
+var historialCantidadPago = document.getElementById("historialCantidadPago");
 var historialFechaPago = document.getElementById("historialFechaPago");
 var historialCliente = document.getElementById("historialCliente");
 
@@ -90,6 +90,11 @@ var fechaPago;
 var c;
 var arregloCosto = [];
 var arregloAdeudo = [];
+var folioSeleccionado;
+var histTipoPago;
+var histCantPago;
+var histFechaPago;
+
 
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
@@ -777,12 +782,30 @@ var validarAdeudo = function () {
            var folioHistorial = cliente + "-pago-0" + index;
            option.text = folioHistorial;
            x.add(option);
-            
         }
-
    };
 
    function ShowSelected2 () {
        
+    selectorHistorial = document.getElementById("historialFolioPago").value;
+    
+    histTipoPago = firebase.database().ref().child("clientes/" + cliente + "/pagos/" + selectorHistorial + "/tipoPago");
+    histCantPago = firebase.database().ref().child("clientes/" + cliente + "/pagos/" + selectorHistorial + "/cantidad");
+    histFechaPago = firebase.database().ref().child("clientes/" + cliente + "/pagos/" + selectorHistorial + "/fecha");
+   
+    histTipoPago.on("value", function (snaptshot) {
+       histTipoPago = snaptshot.val(); 
+       historialTipoPago.innerHTML = histTipoPago;
+    });
 
-   };
+    histCantPago.on("value", function (snaptshot) {
+       histCantPago = snaptshot.val();
+       historialCantidadPago.innerHTML = histCantPago; 
+    });
+
+    histFechaPago.on("value", function (snaptshot) {
+        histFechaPago = snaptshot.val();
+        historialFechaPago.innerHTML = histFechaPago;
+    });
+
+};
