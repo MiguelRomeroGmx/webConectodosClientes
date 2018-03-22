@@ -96,7 +96,6 @@ var histCantPago;
 var histFechaPago;
 
 
-
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
 var fechaActual = new Date();
@@ -399,7 +398,6 @@ btnCancelar.addEventListener("click", function () {
     console.log("Cancelar");
     $("#formAgregar").addClass("collapse");
     $("#tablaClientes").removeClass("collapse");
-
     
 });
 
@@ -412,9 +410,6 @@ btnCancelarPago.addEventListener("click", function () {
 btnRegistrarPago.addEventListener("click", function () {
     $("#formRegPago").removeClass("collapse");
     $("#tablaClientes").addClass("collapse"); 
-    // var hoy = new Date();
-    // var mes = hoy.getMonth() + 1;
-    // var year = hoy.getFullYear();
 
     cantidadPagos = cantidadPagos + 1;
     folio = cliente + "-pago-0" + cantidadPagos;
