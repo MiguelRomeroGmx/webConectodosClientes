@@ -41,6 +41,7 @@ var historialCantidadPago = document.getElementById("historialCantidadPago");
 var historialFechaPago = document.getElementById("historialFechaPago");
 var historialCliente = document.getElementById("historialCliente");
 
+
 var paquete;
 var costo;
 var inicio;
