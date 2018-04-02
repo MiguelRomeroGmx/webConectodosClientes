@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+    
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Clientes Conectodos</title>
+</head>
+<body>
+
+<div class="container" style="text-align:center">
+<img src="portadatw.png" alt="" width="300">
+
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    CONSULTA GENERAL
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body tabla1">
+
+               
+                <table class="table table-striped table-md">
+                    <thead class="bg-warning">
+                        <tr>
+                            <th scope="col">CLIENTES</th>
+                            <th scope="col">REPETIDORAS</th>
+                            <th scope="col">AP</th>
+                            <th scope="col">ST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="numClientes"></td>
+                            <td>5</td>
+                            <td>8</td>
+                            <td>8</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    CONSULTA CLIENTES
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body tabla1" id="tablaClientes">
+
+                    <select id="selector" class="selector class=" form-control "" onchange="ShowSelected();">
+                        <option value="elegir">Elegir Cliente</option>
+                                </select>
+
+                    <table class="table table-striped table-sm">
+                        <thead class="bg-warning">
+                            <tr>
+                                <th class="tabUsuario" scope="col">USUARIO</th>
+                                <th class="tabUsuario" scope="col">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                
+                                <td class="tabUsuario" id="printCliente">CLIENTE</td>
+                                <td class="tabUsuario" id="printStatus">ACTIVO</td>
+                             </tr>
+
+                        </tbody>
+                    </table>
+                    <table class="table table-striped table-sm">
+                        <thead class="bg-warning">
+                                <tr>
+                                    <th class="tabDatos" scope="col">PAQUETE</th>
+                                    <th class="tabDatos" scope="col">COSTO</th>
+                                    <th class="tabDatos" scope="col">INICIO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <tr>
+                                    <td class="tabDatos" id="printPaquete">PAQUETE</td>
+                                    <td class="tabDatos" id="printCosto">COSTO</td>
+                                    <td class="tabDatos" id="printInicio">INICIO</td>
+                                </tr>
+
+                            </tbody>
+                        <thead class="bg-warning">
+                                <tr>
+                                    <th class="tabDatos" scope="col">ULT. PAGO</th>
+                                    <th class="tabDatos" scope="col">PROX. PAGO</th>
+                                    <th class="tabDatos" scope="col">ADEUDO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tabDatos" id="printUltPago">ULT PAGO</td>
+                                    <td class="tabDatos" id="printProxPago">PROX PAGO</td>
+                                    <td class="tabDatos" id="printAdeudo">ADEUDO</td>
+                                </tr>
+
+                            </tbody>
+                            <thead class="bg-warning">
+                                <tr>
+                                    <th class="tabDatos" scope="col">ANTENA</th>
+                                    <th class="tabDatos" scope="col">IP</th>
+                                    <th class="tabDatos" scope="col">AP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tabDatos" id="printAntena">ANTENA</td>
+                                    <td class="tabDatos" id="printIp">IP</td>
+                                    <td class="tabDatos" id="printAp">AP</td>
+                                </tr>
+
+                            </tbody>
+                            <thead >
+                                <tr>
+                            <th scope="col">
+                                <button type="button" class="btn btn-warning" id="btnEditar">Editar</button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" class="btn btn-primary" id="btnAgregar">Agregar</button>
+                            </th>
+                            <th scope="col">
+                                <button type="button" class="btn btn-danger" id="btnActivar">Desactivar</button>
+                            </th>
+                                </tr>
+                            </thead>
+                            </table>
+                            <div>
+                                <button type="button" class="btn btn btn-primary pago" id="registrarPago">Registrar Pago</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn btn-success pago" id="historialPagos">Historial de Pagos</button>
+                            </div>
+
+                        </div>
+                            <!-- Agregar -->
+                            <form id="formAgregar" class="collapse">
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1" id="editarCliente">Nuevo Cliente: </label>
+                                        <label for="" id="agrCodCliente"></label>
+                                        <!-- <input type="text" class="form-control" id="agrCodCliente" placeholder="Codigo cliente" style="text-align:center" required> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Paquete:   </label>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="agrPaq1" value="3 MB">
+                                                <label class="form-check-label" for="paq1">3 MB</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="agrPaq2" value="5 MB">
+                                                <label class="form-check-label" for="paq2">5 MB</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="agrPaq3" value="7 MB">
+                                                <label class="form-check-label" for="paq3">7 MB</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="agrPaq4" value="10 MB">
+                                                <label class="form-check-label" for="paq4">10 MB</label>
+                                            </div>
+                                    </div>
+
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Renta Mensual:   </label>
+                                            
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="agrCosto1" value="400.00">
+                                                    <label class="form-check-label" for="agrCosto1">$400.00</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="agrCosto2" value="600.00">
+                                                    <label class="form-check-label" for="agrCosto2">$600.00</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="agrCosto3" value="800.00">
+                                                    <label class="form-check-label" for="agrCosto3">$800.00</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="agrCosto4" value="1000.00">
+                                                    <label class="form-check-label" for="agrCosto4">$1,000.00</label>
+                                                </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlInput1">Fecha Inicio</label>
+                                                    <input type="date" class="form-control" id="agrFechaInicio" placeholder="Renta mensual" style="text-align:center" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1">Último Pago</label>
+                                        <input type="date" class="form-control" id="agrUltPago" placeholder="Renta mensual" style="text-align:center" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1">Próximo Pago</label>
+                                        <input type="date" class="form-control" id="agrProxPago" placeholder="Renta mensual" style="text-align:center" required>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Adeudo</label>
+                                                <input type="number" min="0" class="form-control" id="agrAdeudo" placeholder="Adeudo" style="text-align:center">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="exampleFormControlInput1">Antena</label>
+                                            <select class="form-control" id="agrAntena" style="text-align:center">
+                                                <option style="text-align:center" value="AIRGRID M2">AIRGRID M2</option>
+                                                <option style="text-align:center" value="NANOSTATION M2">NANOSTATION M2</option>
+                                                <option style="text-align:center" value="LITEBEAM">LITEBEAM</option>
+                                                <option style="text-align:center" value="PICOSTATION">PICOSTATION</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="exampleFormControlInput1">AP</label>
+                                            <select class="form-control" id="agrAp" style="text-align:center">
+                                                <option style="text-align:center" value="AP 1">AP 1</option>
+                                                <option style="text-align:center" value="AP 2">AP 2</option>
+                                                <option style="text-align:center" value="AP 3">AP 3</option>
+                                                <option style="text-align:center" value="AP 4">AP 4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput1">Dirección IP</label>
+                                                <input type="text" class="form-control" id="agrIp" placeholder="Dirección IP" style="text-align:center" required>
+                                            </div>
+                                         </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                            <button id="btnGuardar" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                        <div class="col">
+                                            <button type="reset" id="btnCancelar" class="btn btn-danger">Cancelar</button>
+                                        </div>
+                                    </div>
+                            </form>
+
+                            <!-- Registro de Pago -->
+                    
+                    <form class="collapse" id="formRegPago">
+                    <h5>Registrar Pago</h5>
+
+                    <div class="row">
+                    <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1" id="pagoCliente">Cliente: </label>
+                        <label class="form-control" id="clientePago">
+                        Conect-001</label>                       
+                    </div>
+                    </div>
+                    <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Cantidad</label>
+                        <input type="number" min="0" class="form-control" id="agrPagoCant" placeholder="Cantidad" style="text-align:center">
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Tipo de Pago</label>
+                            <select class="form-control" id="tipoPago" style="text-align:center">
+                                <option style="text-align:center" value="OXXO">OXXO</option>
+                                <option style="text-align:center" value="Deposito">Deposito</option>
+                                <option style="text-align:center" value="Efectivo">Efectivo</option>
+                            </select>
+
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Adeudo</label>
+                                <label class="form-control" id="adeudoPago" style="text-align:center">Adeudo</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row fecha-pago">
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Fecha de Pago</label>
+                            <input type="date" class="form-control" id="fechaPago" style="text-align:center" required>
+
+                        </div>
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Folio de Pago</label>
+                            <label class="form-control" id="folioPago">Conect-001pago-1</label>
+                        </div>
+                        
+                    </div>
+
+                    
+                    <div class="row">
+                        <div class="col">
+                            <button id="btnGuardarPago" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <div class="col">
+                            <button type="reset" id="btnCancelarPago" class="btn btn-danger">Cancelar</button>
+                        </div>
+                    </div>
+                    
+                    </form>
+
+                    <div id="mostrarHistorial" class="collapse">
+                        <h5>Historial de Pagos</h5>
+                    <div class="row">
+                        <div class="col">
+                        <label for="exampleFormControlInput1">Folio del Pago</label>
+
+                        <select class="form-control" id="historialFolioPago" style="text-align:center" onchange="ShowSelected2();">
+                           <option value="">Elegir Folio</option>
+                            <!-- <option style="text-align:center" value="OXXO">OXXO</option>
+                            <option style="text-align:center" value="Deposito">Deposito</option>
+                            <option style="text-align:center" value="Efectivo">Efectivo</option> -->
+                        </select>
+                        </div>
+                    </div>    
+
+                    <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Tipo de Pago</label>
+                        <label class="form-control" id="historialTipoPago">Tipo de Pago</label>
+                    </div>
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Cantidad</label>
+                        <label class="form-control" id="historialCantidadPago">Cantidad</label>
+                    </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1">Fecha de Pago</label>
+                            <label class="form-control" id="historialFechaPago">Fecha</label>
+                        </div>
+                       <div class="col">
+                            <label for="exampleFormControlInput1">Usuario</label>
+                            <label class="form-control" id="historialCliente">Usuario</label>
+                       </div>
+
+                    </div>
+
+                    <button type="button" class="btn btn btn-success pago" id="btnRegresar">Regresar</button>
+                    </div>
+            
+            
+            
+            </div>
+            
+            </div>
+            
+    </div>
+
+
+
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    CONSULTA REPETIDORAS
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body tabla1">
+<div class="btn-group seleccionar-cliente">
+    <button type="button" class="btn btn-warning">TORRE</button>
+    <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">COMALCALCO</a>
+        <a class="dropdown-item" href="#">LOCALES</a>
+        <a class="dropdown-item" href="#">MAGNOLIA</a>
+        <a class="dropdown-item" href="#">GLORIA</a>
+        <a class="dropdown-item" href="#">PARAISO</a>
+        <!-- <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a> -->
+    </div>
+</div>
+
+<table class="table table-striped table-sm">
+    <thead class="bg-warning">
+        <tr>
+            <th scope="col">TORRE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>TORRE COMALCALCO</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<table class="table table-striped table-sm">
+    <thead class="bg-warning">
+        <tr>
+            <th scope="col">DISPOSITIVO</th>
+            <th scope="col">FRECUENCIA</th>
+            <th scope="col">MODO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>POWERBEAM</td>
+            <td>5 GHZ</td>
+            <td>AP</td>
+        </tr>
+
+    </tbody>
+<thead class="bg-warning">
+    <tr>
+        <th scope="col">IP</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">DESCRIPCIÓN</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>192.168.20.52</td>
+        <td>AP COMALCALCO</td>
+        <td>ENLACE COM</td>
+    </tr>
+
+</tbody>
+</table>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+<footer class="bg-warning text-dark" style="text-align:center ">
+    <p>Desarrollado por Miguel Romero Gallegos. 2018</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+ 
+
+</body>
+</html>

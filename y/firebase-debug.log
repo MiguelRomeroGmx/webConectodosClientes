@@ -1,0 +1,36 @@
+[debug] [2018-04-02T04:08:27.847Z] ----------------------------------------------------------------------
+[debug] [2018-04-02T04:08:27.849Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-04-02T04:08:27.849Z] CLI Version:   3.17.7
+[debug] [2018-04-02T04:08:27.849Z] Platform:      darwin
+[debug] [2018-04-02T04:08:27.849Z] Node Version:  v9.5.0
+[debug] [2018-04-02T04:08:27.850Z] Time:          Sun Apr 01 2018 23:08:27 GMT-0500 (CDT)
+[debug] [2018-04-02T04:08:27.850Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-02T04:08:27.889Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-02T04:08:27.889Z] > authorizing via signed-in user
+[debug] [2018-04-02T04:08:27.891Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/tablero-f9941  
+  
+ Sun Apr 01 2018 23:08:27 GMT-0500 (CDT)
+[debug] [2018-04-02T04:08:29.690Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-02T04:08:29.691Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/tablero-f9941/tokens  
+  
+ Sun Apr 01 2018 23:08:29 GMT-0500 (CDT)
+[debug] [2018-04-02T04:08:30.751Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'tablero-f9941'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing y directory for upload...
+[debug] [2018-04-02T04:08:34.352Z] TypeError: no files or directories specified
+    at Object.module.exports (/usr/local/lib/node_modules/firebase-tools/node_modules/tar/lib/create.js:20:11)
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/prepareUpload.js:21:14)
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/deploy/hosting/deploy.js:23:10)
+    at _chain (/usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:23:45)
+    at /usr/local/lib/node_modules/firebase-tools/lib/deploy/index.js:79:12
+    at tryCatch (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:525:12)
+    at invokeCallback (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:538:13)
+    at publish (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:508:7)
+    at flush (/usr/local/lib/node_modules/firebase-tools/node_modules/rsvp/dist/rsvp.js:2415:5)
+    at process._tickCallback (internal/process/next_tick.js:150:11)
+[error] 
+[error] Error: An unexpected error has occurred.
