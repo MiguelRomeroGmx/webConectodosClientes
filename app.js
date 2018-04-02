@@ -771,7 +771,7 @@ var validarAdeudo = function () {
     }
    };
 
-
+// Pagos
    function validarPago() {
     validarCantidad();
     validarTipoPago();
@@ -837,3 +837,6 @@ var validarAdeudo = function () {
     });
 
 };
+
+
+//Pendiente Control de Antenas
