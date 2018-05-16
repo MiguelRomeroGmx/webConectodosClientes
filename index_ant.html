@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Anton|Roboto|Saira+Extra+Condensed" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
-<!-- <script src="https://use.fontawesome.com/502b7294a9.js"></script> -->
+
     
 
     <link rel="stylesheet" href="styles.css">
@@ -35,77 +32,25 @@
             <div class="card-body tabla1">
 
                
-                <!-- <table class="table table-striped table-md">
+                <table class="table table-striped table-md">
                     <thead class="bg-warning">
                         <tr>
-                            <th scope="col"><i class="fas fa-users fa-2x"></i>  CLIENTES</th>
-                            <th scope="col"><i class="fas fa-wifi fa-2x"></i>  REPETIDORAS</th>
-                            <th scope="col"><i class="fas fa-dot-circle fa-2x"></i>  AP</th>
-                            <th scope="col"><i class="far fa-dot-circle fa-2x"></i>  ST</th>
- 
+                            <th scope="col">CLIENTES</th>
+                            <th scope="col">REPETIDORAS</th>
+                            <th scope="col">AP</th>
+                            <th scope="col">ST</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td id="numClientes"></td> 
-                            
+                            <td id="numClientes"></td>
                             <td>5</td>
                             <td>8</td>
                             <td>8</td>
                         </tr>
 
                     </tbody>
-                </table> -->
-<!-- card -->
-                <div class="row">
-                    
-                    <div class="col-3">
-                        <div class="card text-white" style="width: 15rem;">
-                            <div class="card-header bg-warning mb-3"><i class="fas fa-users fa-2x"></i>  CLIENTES</div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="numClientes"></li>
-                                </ul>
-                        </div>
-                    </div>
-                    
-                <div class="col-3">
-                    <div class="card text-white" style="width: 15rem;">
-                        <div class="card-header bg-warning mb-3"><i class="fas fa-wifi fa-2x"></i>  TORRES
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item negro" id="numClientes">5</li>
-                            </ul>
-                    </div>
-                </div>
-
-
-                <div class="col-3">
-                    <div class="card text-white" style="width: 15rem;">
-                        <div class="card-header bg-warning mb-3">
-                            <i class="fas fa-dot-circle fa-2x"></i> AP
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item negro" id="numClientes">5</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div class="col-3">
-                    <div class="card text-white" style="width: 15rem;">
-                        <div class="card-header bg-warning mb-3">
-                            <i class="far fa-dot-circle fa-2x"></i> ST
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item negro" id="numClientes">5</li>
-                        </ul>
-                    </div>
-                </div>
-
-                </div>
-
-                
-                <!-- card -->
+                </table>
 
             </div>
         </div>
@@ -125,7 +70,7 @@
                         <option value="elegir">Elegir Cliente</option>
                                 </select>
 
-                    <!-- <table class="table table-striped table-sm">
+                    <table class="table table-striped table-sm">
                         <thead class="bg-warning">
                             <tr>
                                 <th class="tabUsuario" scope="col">USUARIO</th>
@@ -140,137 +85,7 @@
                              </tr>
 
                         </tbody>
-                    </table> -->
-
-                    <!-- card 1 -->
-
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-success">
-                                <i class="far fa-user fa-2x"></i> USUARIO
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printCliente">USUARIO</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card text-center  text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-success">
-                                    <i class="fas fa-user fa-2x"></i> NOMBRE
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printNombre">JUAN PEREZ SANCHEZ</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-success">
-                                    <i class="fas fa-exclamation-circle fa-2x"></i> ESTATUS
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printStatus">ACTIVO</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- card 1 -->
-                    <!-- card 2 -->
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                <i class="fas fa-cubes fa-2x"></i> PAQUETE
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printPaquete">PAQUETE</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-center  text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                    <i class="fas fa-dollar-sign fa-2x"></i> COSTO
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printCosto">COSTO</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                    <i class="fas fa-calendar-check fa-2x"></i> INICIO
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printInicio">INICIO</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                    <i class="fas fa-money-bill-alt fa-2x"></i> ADEUDO
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printAdeudo">ADEUDO</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- card 2 -->
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                <i class="fas fa-calendar-alt fa-2x"></i> ULT. PAGO
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printUltPago">ULT. PAGO</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-center  text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                    <i class="far fa-calendar-alt fa-2x"></i> PROX. PAGO
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printProxPago">PROX. PAGO</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                    <i class="fas fa-dot-circle fa-2x"></i> ANTENA
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printAntena">ANTENA</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card text-center text-white centrar" style="width: 15rem;">
-                                <div class="card-header bg-primary">
-                                    <i class="far fa-dot-circle fa-2x"></i> AP
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printAp">AP</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- card 3 -->
-
-                    <!-- card 3 -->
+                    </table>
                     <table class="table table-striped table-sm">
                         <thead class="bg-warning">
                                 <tr>
@@ -317,10 +132,6 @@
                                 </tr>
 
                             </tbody>
-
-
-
-                            <!-- botones -->
                             <thead >
                                 <tr>
                             <th scope="col">
@@ -335,7 +146,6 @@
                                 </tr>
                             </thead>
                             </table>
-
                             <div>
                                 <button type="button" class="btn btn btn-primary pago" id="registrarPago">Registrar Pago</button>
                             </div>
@@ -675,7 +485,7 @@
     crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
  
 
 </body>

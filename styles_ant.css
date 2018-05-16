@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -6,48 +6,36 @@ body{
     flex-wrap: wrap;
 }
 
-.centrar{
-    margin: auto;
-    text-align: center;
-}
-
-.negro{
-    color: black;
-}
-
-.selector{
+.selector {
     padding: 8px;
     font-size: 12px;
 }
 
-.seleccionar-cliente{
-padding: 10px;
-
+.seleccionar-cliente {
+    padding: 10px;
 }
 
-.row{
+.row {
     margin: 10px;
 }
 
-.btn{
+.btn {
     font-size: 12px;
     width: 80%;
     /* text-align: center; */
 }
 
-.table{
+.table {
     font-size: 12px;
 }
 
-.tabla1{
-
- /* position: relative; */
- box-sizing: border-box;
- padding: 0;
-
+.tabla1 {
+    /* position: relative; */
+    box-sizing: border-box;
+    padding: 0;
 }
 
-footer{
+footer {
     font-size: 12px;
     align-self: flex-end;
     background-color: orange;
@@ -56,26 +44,24 @@ footer{
     width: 100%;
 }
 
-.collapsed{
+.collapsed {
     font-size: 15px;
 }
 
-.pago{
+.pago {
     margin-bottom: 15px;
     width: 93%;
     font-size: 15px;
-    
 }
 
 .tabUsuario {
- width: 50%;
-
+    width: 50%;
 }
 
 .tabDatos {
     width: 33.333%;
 }
 
-.botones{
+.botones {
     width: 50%;
 }
