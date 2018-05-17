@@ -361,6 +361,36 @@ ap.on("value", function(snaptshot){
 	console.log(ap);
 });
 
+nombre.on("value", function (snaptshot) {
+    nombre = snaptshot.val();
+    printNombre.innerHTML = nombre;
+});
+
+zona.on("value", function (snaptshot) {
+    zona = snaptshot.val();
+    printLugar.innerHTML = zona;
+});
+
+mastil.on("value", function (snaptshot) {
+    mastil = snaptshot.val();
+    printMastil.innerHTML = mastil;
+});
+
+dist.on("value", function (snaptshot) {
+    dist = snaptshot.val();
+    printDist.innerHTML = dist;
+});
+
+senal.on("value", function (snaptshot) {
+    senal = snaptshot.val();
+    printSenal.innerHTML = senal;
+});
+
+observaciones.on("value", function (snaptshot) {
+    observaciones = snaptshot.val();
+    printObservaciones.innerHTML = observaciones;
+});
+
 }
 }
 
@@ -379,6 +409,7 @@ btnAgregar.addEventListener("click", function () {
     }
     var nuevoCodigo = codigoAsignado.toUpperCase();
     console.log(nuevoCodigo);
+    editarCliente.innerHTML = "Nuevo Cliente: ";
     agrCodCliente.innerHTML = nuevoCodigo;  
 });
 

@@ -381,60 +381,197 @@
 
                                         </div>
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlInput1">Fecha Inicio</label>
-                                                    <input type="date" class="form-control" id="agrFechaInicio" placeholder="Renta mensual" style="text-align:center" required>
-                                                </div>
+                                            <div class="col-4">
+                                                <!-- <div class="form-group">
+                                                    <label for="exampleFormControlInput1">Zona</label>
+                                                    <input type="text" class="form-control" id="agrLugar" placeholder="Zona" style="text-align:center" required>
+                                                </div> -->
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Zona</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrLugar"placeholder="Zona" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
                                             </div>
-                                        </div>
-                                    <div class="row">
+                                            <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Nombre</label>
+                                                <input type="text" class="form-control" id="agrNombre" placeholder="Nombre" style="text-align:center" required>
+                                            </div> -->
 
-                                    <div class="col">
-                                        <label for="exampleFormControlInput1">Último Pago</label>
-                                        <input type="date" class="form-control" id="agrUltPago" placeholder="Renta mensual" style="text-align:center" required>
-                                    </div>
-                                    <div class="col">
-                                        <label for="exampleFormControlInput1">Próximo Pago</label>
-                                        <input type="date" class="form-control" id="agrProxPago" placeholder="Renta mensual" style="text-align:center" required>
-                                    </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrNombre" placeholder="Nombre" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                            </div>
+
+                                            <div class="col-4">
+                                            <!-- <div class="form-group">
                                                 <label for="exampleFormControlInput1">Adeudo</label>
                                                 <input type="number" min="0" class="form-control" id="agrAdeudo" placeholder="Adeudo" style="text-align:center">
-                                            </div>
+                                            </div> -->
+
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Adeudo</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrAdeudo" placeholder="Adeudo" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
                                         </div>
+
+                                         </div>
+                                        <!-- </div> -->
+                                    <div class="row">
+                                        <div class="col-4">
+                                                <!-- <div class="form-group">
+                                                    <label for="exampleFormControlInput1">Fecha Inicio</label>
+                                                    <input type="date" class="form-control" id="agrFechaInicio" placeholder="Renta mensual" style="text-align:center" required>
+                                                </div> -->
+
+                                                <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Fecha Inicio</span>
+                                                        </div>
+                                                     <input type="date" class="form-control" id="agrFechaInicio" placeholder="" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                            </div>
+
+                                    <div class="col-4">
+                                        <!-- <label for="exampleFormControlInput1">Último Pago</label>
+                                        <input type="date" class="form-control" id="agrUltPago" placeholder="Renta mensual" style="text-align:center" required> -->
+
+                                        <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Ultimo Pago</span>
+                                                        </div>
+                                                     <input type="date" class="form-control" id="agrUltPago" placeholder="" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <!-- <label for="exampleFormControlInput1">Próximo Pago</label>
+                                        <input type="date" class="form-control" id="agrProxPago" placeholder="Renta mensual" style="text-align:center" required> -->
+
+                                        <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Proximo Pago</span>
+                                                        </div>
+                                                     <input type="date" class="form-control" id="agrProxPago" placeholder="Zona" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                    </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
-                                            <label for="exampleFormControlInput1">Antena</label>
+                                        
+                                        
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <!-- <label for="exampleFormControlInput1">Antena</label>
                                             <select class="form-control" id="agrAntena" style="text-align:center">
                                                 <option style="text-align:center" value="AIRGRID M2">AIRGRID M2</option>
                                                 <option style="text-align:center" value="NANOSTATION M2">NANOSTATION M2</option>
                                                 <option style="text-align:center" value="LITEBEAM">LITEBEAM</option>
                                                 <option style="text-align:center" value="PICOSTATION">PICOSTATION</option>
-                                            </select>
+                                            </select> -->
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <label class="input-group-text" for="inputGroupSelect01">Antena</label>
+                                                </div>
+                                            <select class="form-control" id="agrAntena" style="text-align:center">
+                                                <option style="text-align:center" value="AIRGRID M2">AIRGRID M2</option>
+                                                <option style="text-align:center" value="NANOSTATION M2">NANOSTATION M2</option>
+                                                <option style="text-align:center" value="LITEBEAM">LITEBEAM</option>
+                                                <option style="text-align:center" value="PICOSTATION">PICOSTATION</option>
+                                                </select>
+                                            </div>
+
                                         </div>
-                                        <div class="col">
-                                            <label for="exampleFormControlInput1">AP</label>
+                                        <div class="col-4">
+
+                                            <!-- <label for="exampleFormControlInput1">AP</label> -->
+                                            <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                    <label class="input-group-text" for="inputGroupSelect01">AP</label>
+                                                </div>
                                             <select class="form-control" id="agrAp" style="text-align:center">
                                                 <option style="text-align:center" value="AP 1">AP 1</option>
                                                 <option style="text-align:center" value="AP 2">AP 2</option>
                                                 <option style="text-align:center" value="AP 3">AP 3</option>
                                                 <option style="text-align:center" value="AP 4">AP 4</option>
                                             </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Dirección IP</label>
+                                                <input type="text" class="form-control" id="agrIp" placeholder="Dirección IP" style="text-align:center" required>
+                                            </div> -->
+
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Direccion IP</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrIp" placeholder="Direccion IP" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Dirección IP</label>
-                                                <input type="text" class="form-control" id="agrIp" placeholder="Dirección IP" style="text-align:center" required>
-                                            </div>
+                                        <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Mastil (m)</label>
+                                                <input type="text" class="form-control" id="agrMastil" placeholder="Altura" style="text-align:center" required>
+                                            </div> -->
+
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Mastil (m)</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrMastil" placeholder="Altura" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                    
                                          </div>
+                                         <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Dist. AP (km)</label>
+                                                <input type="text" class="form-control" id="agrDist" placeholder="Distancia" style="text-align:center" required>
+                                            </div> -->
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Dist. AP (km)</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrDist" placeholder="Distancia" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                         </div>
+                                         <div class="col-4">
+                                            <div class="form-group">
+                                                <!-- <label for="exampleFormControlInput1">Señal</label>
+                                                <input type="text" class="form-control" id="agrSenal" placeholder="dBi-dBm-%" style="text-align:center" required>
+                                            </div> -->
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Señal</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrSenal" placeholder="dBi-dBm-%" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                         </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Observaciones</label>
+                                                <!-- <input type="text" class="form-control" id="agrObservaciones" placeholder="Observaciones" style="text-align:center" required> -->
+                                                <textarea class="form-control" id="agrObservaciones" placeholder="Observaciones" style="text-align:center"rows="3"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                     <div class="row">
