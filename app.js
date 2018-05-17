@@ -22,6 +22,12 @@ var printAntena = document.getElementById("printAntena");
 var printIp = document.getElementById("printIp");
 var printAp = document.getElementById("printAp");
 var printCliente = document.getElementById("printCliente");
+var printNombre = document.getElementById("printNombre");
+var printLugar = document.getElementById("printLugar");
+var printMastil = document.getElementById("printMastil");
+var printDist = document.getElementById("printDist");
+var printSenal = document.getElementById("printSenal");
+var printObservaciones = document.getElementById("printObservaciones");
 var selector = document.getElementById("selector").value;
 var btnEditar = document.getElementById("btnEditar");
 var btnAgregar = document.getElementById("btnAgregar");
@@ -42,6 +48,7 @@ var historialFechaPago = document.getElementById("historialFechaPago");
 var historialCliente = document.getElementById("historialCliente");
 
 
+
 var paquete;
 var costo;
 var inicio;
@@ -56,6 +63,12 @@ var folio;
 var numPago;
 var rgAdeudo;
 var cantidadPagos;
+var nombre;
+var zona;
+var mastil;
+var dist;
+var senal;
+var observaciones;
 
 
 var cliente = selector.toLowerCase();
@@ -247,6 +260,12 @@ if (selector == "elegir") {
     printAntena.innerHTML = "ANTENA";
     printIp.innerHTML = "DIR IP";
     printAp.innerHTML = "AP";
+    printNombre.innerHTML = "NOMBRE";
+    printLugar.innerHTML = "ZONA";
+    printMastil.innerHTML = "ALTURA";
+    printDist.innerHTML = "DIST AP";
+    printSenal.innerHTML = "dBi-dBm-%";
+    printObservaciones.innerHTML = "OBSERVACIONES";
 } else{
 cliente = selector.toLowerCase();
 printCliente.innerHTML = selector.toUpperCase();
@@ -263,7 +282,12 @@ ip = firebase.database().ref().child("clientes/" + cliente + "/ip");
 ap = firebase.database().ref().child("clientes/" + cliente + "/ap");
 estado = firebase.database().ref().child("clientes/" + cliente + "/estado");
 cantidadPagos = firebase.database().ref().child("clientes/" + cliente + "/cantPagos");
-
+nombre = firebase.database().ref().child("clientes/" + cliente + "/nombre");
+zona = firebase.database().ref().child("clientes/" + cliente + "/zona");
+mastil = firebase.database().ref().child("clientes/" + cliente + "/mastil");
+dist = firebase.database().ref().child("clientes/" + cliente + "/dist");
+senal = firebase.database().ref().child("clientes/" + cliente + "/senal");
+observaciones = firebase.database().ref().child("clientes/" + cliente + "/observaciones");
 
 cantidadPagos.on("value", function (snaptshot) {
    cantidadPagos = snaptshot.val(); 
