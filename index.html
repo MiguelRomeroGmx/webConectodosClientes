@@ -146,7 +146,7 @@
                                     <i class="fas fa-map-marker-alt fa-2x"></i> ZONA
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item negro" id="printLugar">ZONA</li>
+                                    <li class="list-group-item negro" id="printZona">ZONA</li>
                                 </ul>
                             </div>
                         </div>
@@ -335,8 +335,16 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1" id="editarCliente">Nuevo Cliente: </label>
                                         <label for="" id="agrCodCliente"></label>
-                                        <!-- <input type="text" class="form-control" id="agrCodCliente" placeholder="Codigo cliente" style="text-align:center" required> -->
                                     </div>
+
+                                     <!-- <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Nuevo Cliente: </span>
+                                                        </div>
+                                                        <label for="" id="agrCodCliente"></label>
+                                                     <input type="text" class="form-control" id="agrNombre" placeholder="Nombre" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                    </div> -->
+
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Paquete:   </label>
 
@@ -388,9 +396,9 @@
                                                 </div> -->
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Zona</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Zona</span>
                                                         </div>
-                                                     <input type="text" class="form-control" id="agrLugar"placeholder="Zona" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                     <input type="text" class="form-control" id="agrZona"placeholder="Zona" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                             </div>
                                             <div class="col-4">
@@ -401,7 +409,7 @@
 
                                             <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Nombre</span>
                                                         </div>
                                                      <input type="text" class="form-control" id="agrNombre" placeholder="Nombre" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -416,7 +424,7 @@
 
                                             <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Adeudo</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Adeudo</span>
                                                         </div>
                                                      <input type="text" class="form-control" id="agrAdeudo" placeholder="Adeudo" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -433,7 +441,7 @@
 
                                                 <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Fecha Inicio</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Fecha Inicio</span>
                                                         </div>
                                                      <input type="date" class="form-control" id="agrFechaInicio" placeholder="" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -445,7 +453,7 @@
 
                                         <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Ultimo Pago</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Ultimo Pago</span>
                                                         </div>
                                                      <input type="date" class="form-control" id="agrUltPago" placeholder="" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -456,7 +464,7 @@
 
                                         <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Proximo Pago</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Proximo Pago</span>
                                                         </div>
                                                      <input type="date" class="form-control" id="agrProxPago" placeholder="Zona" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -479,7 +487,7 @@
 
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">Antena</label>
+                                                    <label class="input-group-text bg-warning" for="inputGroupSelect01">Antena</label>
                                                 </div>
                                             <select class="form-control" id="agrAntena" style="text-align:center">
                                                 <option style="text-align:center" value="AIRGRID M2">AIRGRID M2</option>
@@ -495,7 +503,7 @@
                                             <!-- <label for="exampleFormControlInput1">AP</label> -->
                                             <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">AP</label>
+                                                    <label class="input-group-text bg-warning" for="inputGroupSelect01">AP</label>
                                                 </div>
                                             <select class="form-control" id="agrAp" style="text-align:center">
                                                 <option style="text-align:center" value="AP 1">AP 1</option>
@@ -513,7 +521,7 @@
 
                                             <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Direccion IP</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Direccion IP</span>
                                                         </div>
                                                      <input type="text" class="form-control" id="agrIp" placeholder="Direccion IP" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -529,7 +537,7 @@
 
                                             <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Mastil (m)</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Mastil (m)</span>
                                                         </div>
                                                      <input type="text" class="form-control" id="agrMastil" placeholder="Altura" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -543,7 +551,7 @@
                                             </div> -->
                                             <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Dist. AP (km)</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Dist. AP (km)</span>
                                                         </div>
                                                      <input type="text" class="form-control" id="agrDist" placeholder="Distancia" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -556,7 +564,7 @@
                                             </div> -->
                                             <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Señal</span>
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Señal</span>
                                                         </div>
                                                      <input type="text" class="form-control" id="agrSenal" placeholder="dBi-dBm-%" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>

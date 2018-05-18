@@ -23,7 +23,7 @@ var printIp = document.getElementById("printIp");
 var printAp = document.getElementById("printAp");
 var printCliente = document.getElementById("printCliente");
 var printNombre = document.getElementById("printNombre");
-var printLugar = document.getElementById("printLugar");
+var printLugar = document.getElementById("printZona");
 var printMastil = document.getElementById("printMastil");
 var printDist = document.getElementById("printDist");
 var printSenal = document.getElementById("printSenal");
@@ -85,6 +85,7 @@ var validacionAdeudo;
 var validacionCantidad;
 var validacionTipoPago;
 var validacionFechaPago;
+var validacionZona;
 
 var codigoAsignado;
 var paqSeleccionado;
@@ -96,6 +97,7 @@ var antenaSeleccionada;
 var apSeleccionado;
 var ipSeleccionada;
 var adeudoSeleccionado;
+var zonaSeleccionada;
 var confirmEditar;
 var msgAgregar;
 var cantidadPagada;
@@ -368,7 +370,7 @@ nombre.on("value", function (snaptshot) {
 
 zona.on("value", function (snaptshot) {
     zona = snaptshot.val();
-    printLugar.innerHTML = zona;
+    printZona.innerHTML = zona;
 });
 
 mastil.on("value", function (snaptshot) {
@@ -411,7 +413,7 @@ btnAgregar.addEventListener("click", function () {
     console.log(nuevoCodigo);
     editarCliente.innerHTML = "Nuevo Cliente: ";
     agrCodCliente.innerHTML = nuevoCodigo;  
-});
+}); 
 
 
 btnEditar.addEventListener("click", function () {
@@ -631,6 +633,17 @@ var validarAdeudo = function () {
   adeudoSeleccionado = formAgregar.agrAdeudo.value;  
 };
 
+var validarZona = function () {
+   if (formAgregar.agrZona.value == 0) {
+       validacionZona = false;
+       alert("Ingrese la Zona");
+   } else{
+       validacionZona = true;
+       zonaSeleccionada = formAgregar.agrZona.value;
+   }
+};
+
+
  function validar() {
        // validarCodigo();
         validarPaquete();
@@ -642,9 +655,10 @@ var validarAdeudo = function () {
         validarAp();
         validarIp();
         validarAdeudo();
+        validarZona();
 
         if (validacionCodigo == true && validacionPaquete == true && validacionCosto == true && validacionFechaInicio == true && validacionUltimoPago == true && 
-            validacionProximoPago == true && validacionAntena == true && validacionAp == true && validacionIp == true) {
+            validacionProximoPago == true && validacionAntena == true && validacionAp == true && validacionIp == true && validacionZona == true) {
              console.log("validacion correcta");
              console.log("Codigo Asignado: " + codigoAsignado);
              console.log("Paquete seleccionado: " + paqSeleccionado);
@@ -664,13 +678,9 @@ var validarAdeudo = function () {
                  msgAgregar = 0;
              }
              
-             
-            actualizarBd();
-
-             
+            actualizarBd(); 
         }
        
-        
     };
 
     function actualizarBd() {
@@ -685,6 +695,7 @@ var validarAdeudo = function () {
         firebase.database().ref("clientes/" + codigoAsignado + "/ip").set(ipSeleccionada);
         firebase.database().ref("clientes/" + codigoAsignado + "/adeudo").set(adeudoSeleccionado);
         firebase.database().ref("clientes/" + codigoAsignado + "/codigo").set(codigoAsignado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/zona").set(zonaSeleccionada);
         firebase.database().ref("clientes/" + codigoAsignado + "/cantPagos").set(0);
         firebase.database().ref("clientes/cantidad").set(cantClientes);
 
@@ -710,6 +721,7 @@ var validarAdeudo = function () {
         formAgregar.agrIp.value = ip;
         formAgregar.agrAp.value = ap;
         formAgregar.agrAntena.value = antena;
+        formAgregar.agrZona.value = zona;
         
         console.log(paquete);
         console.log(costo);
