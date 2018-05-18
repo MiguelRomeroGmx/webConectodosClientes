@@ -86,6 +86,11 @@ var validacionCantidad;
 var validacionTipoPago;
 var validacionFechaPago;
 var validacionZona;
+var validacionNombre;
+var validacionMastil;
+var validacionDist;
+var validacionSenal;
+var validacionObservaciones;
 
 var codigoAsignado;
 var paqSeleccionado;
@@ -98,6 +103,11 @@ var apSeleccionado;
 var ipSeleccionada;
 var adeudoSeleccionado;
 var zonaSeleccionada;
+var nombreSeleccionado;
+var mastilSeleccionado;
+var distSeleccionada;
+var senalSeleccionada;
+var observacionesSeleccionada;
 var confirmEditar;
 var msgAgregar;
 var cantidadPagada;
@@ -643,6 +653,45 @@ var validarZona = function () {
    }
 };
 
+var validarNombre = function () {
+  if (formAgregar.agrNombre.value == 0) {
+      validacionNombre = false;
+      alert("Ingrese Nombre Cliente");
+  }  else {
+      validacionNombre = true;
+      nombreSeleccionado = formAgregar.agrNombre.value;
+  }
+};
+
+var validarMastil = function () {
+    if (formAgregar.agrMastil.value == 0) {
+        validacionMastil = 0;
+        alert("Ingrese la Altura del Mastil");
+    } else{
+        validacionMastil = true;
+        mastilSeleccionado = formAgregar.agrMastil.value;
+    }
+};
+
+var validarDist = function () {
+  validacionDist = true;
+  distSeleccionada = formAgregar.agrDist.value;
+};
+
+var validarSenal = function () {
+  if (formAgregar.agrSenal.value == 0) {
+      validacionSenal = false;
+      alert("Introduzca los parámetros de la antena");
+  }  else{
+      validacionSenal = true;
+      senalSeleccionada = formAgregar.agrSenal.value;
+  }
+};
+
+var validarObservaciones = function () {
+  validacionObservaciones = true;
+  observacionesSeleccionada = formAgregar.agrObservaciones.value;  
+};
 
  function validar() {
        // validarCodigo();
@@ -656,9 +705,15 @@ var validarZona = function () {
         validarIp();
         validarAdeudo();
         validarZona();
+        validarNombre();
+        validarMastil();
+        validarDist();
+        validarSenal();
+        validarObservaciones();
 
         if (validacionCodigo == true && validacionPaquete == true && validacionCosto == true && validacionFechaInicio == true && validacionUltimoPago == true && 
-            validacionProximoPago == true && validacionAntena == true && validacionAp == true && validacionIp == true && validacionZona == true) {
+            validacionProximoPago == true && validacionAntena == true && validacionAp == true && validacionIp == true && validacionZona == true && validacionNombre == true &&
+            validacionMastil == true && validacionDist == true && validacionSenal == true && validacionObservaciones == true) {
              console.log("validacion correcta");
              console.log("Codigo Asignado: " + codigoAsignado);
              console.log("Paquete seleccionado: " + paqSeleccionado);
@@ -696,6 +751,11 @@ var validarZona = function () {
         firebase.database().ref("clientes/" + codigoAsignado + "/adeudo").set(adeudoSeleccionado);
         firebase.database().ref("clientes/" + codigoAsignado + "/codigo").set(codigoAsignado);
         firebase.database().ref("clientes/" + codigoAsignado + "/zona").set(zonaSeleccionada);
+        firebase.database().ref("clientes/" + codigoAsignado + "/nombre").set(nombreSeleccionado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/mastil").set(mastilSeleccionado);
+        firebase.database().ref("clientes/" + codigoAsignado + "/dist").set(distSeleccionada);
+        firebase.database().ref("clientes/" + codigoAsignado + "/senal").set(senalSeleccionada);
+        firebase.database().ref("clientes/" + codigoAsignado + "/observaciones").set(observacionesSeleccionada);
         firebase.database().ref("clientes/" + codigoAsignado + "/cantPagos").set(0);
         firebase.database().ref("clientes/cantidad").set(cantClientes);
 
@@ -722,6 +782,11 @@ var validarZona = function () {
         formAgregar.agrAp.value = ap;
         formAgregar.agrAntena.value = antena;
         formAgregar.agrZona.value = zona;
+        formAgregar.agrNombre.value = nombre;
+        formAgregar.agrMastil.value = mastil;
+        formAgregar.agrDist.value = dist;
+        formAgregar.agrSenal.value = senal;
+        formAgregar.agrObservaciones.value = observaciones;
         
         console.log(paquete);
         console.log(costo);
