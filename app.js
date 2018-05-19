@@ -385,12 +385,12 @@ zona.on("value", function (snaptshot) {
 
 mastil.on("value", function (snaptshot) {
     mastil = snaptshot.val();
-    printMastil.innerHTML = mastil;
+    printMastil.innerHTML = mastil + " m";
 });
 
 dist.on("value", function (snaptshot) {
     dist = snaptshot.val();
-    printDist.innerHTML = dist;
+    printDist.innerHTML = dist + " km";
 });
 
 senal.on("value", function (snaptshot) {
