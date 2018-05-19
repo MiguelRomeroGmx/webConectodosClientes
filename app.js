@@ -325,7 +325,7 @@ paquete.on("value", function(snaptshot){
 
 costo.on("value", function(snaptshot){
 	costo = snaptshot.val();
-	printCosto.innerHTML = "$" + costo;
+	printCosto.innerHTML = "$ " + costo;
 	console.log(costo);
 });
 
@@ -343,7 +343,7 @@ ultPago.on("value", function(snaptshot){
 
 adeudo.on("value", function(snaptshot){
 	adeudo = snaptshot.val();
-	printAdeudo.innerHTML = adeudo;
+	printAdeudo.innerHTML =   "$ " + adeudo + ".00";
 	console.log(adeudo);
 });
 
@@ -664,13 +664,10 @@ var validarNombre = function () {
 };
 
 var validarMastil = function () {
-    if (formAgregar.agrMastil.value == 0) {
-        validacionMastil = 0;
-        alert("Ingrese la Altura del Mastil");
-    } else{
+    
         validacionMastil = true;
         mastilSeleccionado = formAgregar.agrMastil.value;
-    }
+    
 };
 
 var validarDist = function () {

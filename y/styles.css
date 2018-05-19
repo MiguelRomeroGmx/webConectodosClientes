@@ -6,9 +6,21 @@ body{
     flex-wrap: wrap;
 }
 
+.centrar{
+    margin: auto;
+    text-align: center;
+}
+
+.negro{
+    color: black;
+}
+
 .selector{
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 8px;
-    font-size: 12px;
+    font-size: 18px;
+    color: white;
 }
 
 .seleccionar-cliente{
@@ -21,7 +33,7 @@ padding: 10px;
 }
 
 .btn{
-    font-size: 12px;
+    font-size: 18px;
     width: 80%;
     /* text-align: center; */
 }
@@ -54,7 +66,7 @@ footer{
 .pago{
     margin-bottom: 15px;
     width: 93%;
-    font-size: 15px;
+    font-size: 18px;
     
 }
 

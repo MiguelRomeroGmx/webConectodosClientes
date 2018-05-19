@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-
+<link href="https://fonts.googleapis.com/css?family=Anton|Roboto|Saira+Extra+Condensed" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+<!-- <script src="https://use.fontawesome.com/502b7294a9.js"></script> -->
     
 
     <link rel="stylesheet" href="styles.css">
@@ -30,27 +33,57 @@
 
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body tabla1">
+                
+                <!-- card -->
+                <div class="row">
+                    
+                    <div class="col-3">
+                        <div class="card text-white" style="width: 100%">
+                            <div class="card-header bg-warning mb-3"><i class="fas fa-users fa-2x"></i>  CLIENTES</div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="numClientes"></li>
+                                </ul>
+                        </div>
+                    </div>
+                    
+                <div class="col-3">
+                    <div class="card text-white" style="width: 100%;">
+                        <div class="card-header bg-warning mb-3"><i class="fas fa-wifi fa-2x"></i>  TORRES
+                        </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item negro" id="numClientes">5</li>
+                            </ul>
+                    </div>
+                </div>
 
-               
-                <table class="table table-striped table-md">
-                    <thead class="bg-warning">
-                        <tr>
-                            <th scope="col">CLIENTES</th>
-                            <th scope="col">REPETIDORAS</th>
-                            <th scope="col">AP</th>
-                            <th scope="col">ST</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td id="numClientes"></td>
-                            <td>5</td>
-                            <td>8</td>
-                            <td>8</td>
-                        </tr>
 
-                    </tbody>
-                </table>
+                <div class="col-3">
+                    <div class="card text-white" style="width: 100%;">
+                        <div class="card-header bg-warning mb-3">
+                            <i class="fas fa-dot-circle fa-2x"></i> AP
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item negro" id="numClientes">5</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-3">
+                    <div class="card text-white" style="width: 100%;">
+                        <div class="card-header bg-warning mb-3">
+                            <i class="far fa-dot-circle fa-2x"></i> ST
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item negro" id="numClientes">5</li>
+                        </ul>
+                    </div>
+                </div>
+
+                </div>
+
+                
+                <!-- card -->
 
             </div>
         </div>
@@ -65,87 +98,229 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body tabla1" id="tablaClientes">
-
-                    <select id="selector" class="selector class=" form-control "" onchange="ShowSelected();">
+                    <div class="row justify-content-md-center">
+                        <div class="col-3">
+                    <select id="selector" class="selector form-control bg-warning" onchange="ShowSelected();">
                         <option value="elegir">Elegir Cliente</option>
                                 </select>
+                                </div>
+                                </div>
 
+
+                    <!-- card 1 -->
+
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                <i class="far fa-user fa-2x"></i> USUARIO
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printCliente">USUARIO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center  text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-user fa-2x"></i> NOMBRE
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printNombre">JUAN PEREZ SANCHEZ</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-exclamation-circle fa-2x"></i> ESTATUS
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printStatus">ACTIVO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-map-marker-alt fa-2x"></i> ZONA
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printZona">ZONA</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- card 1 -->
+                  
+                    <!-- card 2 -->
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                <i class="fas fa-cubes fa-2x"></i> PAQUETE
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printPaquete">PAQUETE</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center  text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-dollar-sign fa-2x"></i> COSTO
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printCosto">COSTO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-calendar-check fa-2x"></i> INICIO
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printInicio">INICIO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-money-bill-alt fa-2x"></i> ADEUDO
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printAdeudo">ADEUDO</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- card 2 -->
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                <i class="fas fa-calendar-alt fa-2x"></i> ULT. PAGO
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printUltPago">ULT. PAGO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center  text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="far fa-calendar-alt fa-2x"></i> PROX. PAGO
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printProxPago">PROX. PAGO</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-dot-circle fa-2x"></i> ANTENA
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printAntena">ANTENA</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="far fa-dot-circle fa-2x"></i> AP
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printAp">AP</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- card 3 -->
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-globe fa-2x"></i> IP
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printIp">IP</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-arrows-alt-v fa-2x"></i> MASTIL (m)
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printMastil">15</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-map fa-2x"></i> DIST. AP (km)
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printDist">2</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card text-center text-warning centrar" style="width: 100%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-signal fa-2x"></i> SEÑAL-RUIDO-CCQ
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printSenal">68-103-97</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- <div class="col-3"> -->
+                            
+                            <div class="card text-center text-warning centrar" style="width: 97%;">
+                                <div class="card-header bg-dark">
+                                    <i class="fas fa-clipboard fa-2x"></i> OBSERVACIONES
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item negro" id="printObservaciones"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde necessitatibus corrupti, eum a incidunt esse soluta ratione sunt voluptatum omnis exercitationem maiores temporibus! Magnam, placeat velit blanditiis libero praesentium dolore? </li>
+                                </ul>
+                            </div>
+                        <!-- </div> -->
+                        
+                    </div>
+                    <!-- card 3 -->
                     <table class="table table-striped table-sm">
-                        <thead class="bg-warning">
-                            <tr>
-                                <th class="tabUsuario" scope="col">USUARIO</th>
-                                <th class="tabUsuario" scope="col">STATUS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                
-                                <td class="tabUsuario" id="printCliente">CLIENTE</td>
-                                <td class="tabUsuario" id="printStatus">ACTIVO</td>
-                             </tr>
 
-                        </tbody>
-                    </table>
-                    <table class="table table-striped table-sm">
-                        <thead class="bg-warning">
-                                <tr>
-                                    <th class="tabDatos" scope="col">PAQUETE</th>
-                                    <th class="tabDatos" scope="col">COSTO</th>
-                                    <th class="tabDatos" scope="col">INICIO</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                             <tr>
-                                    <td class="tabDatos" id="printPaquete">PAQUETE</td>
-                                    <td class="tabDatos" id="printCosto">COSTO</td>
-                                    <td class="tabDatos" id="printInicio">INICIO</td>
-                                </tr>
-
-                            </tbody>
-                        <thead class="bg-warning">
-                                <tr>
-                                    <th class="tabDatos" scope="col">ULT. PAGO</th>
-                                    <th class="tabDatos" scope="col">PROX. PAGO</th>
-                                    <th class="tabDatos" scope="col">ADEUDO</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="tabDatos" id="printUltPago">ULT PAGO</td>
-                                    <td class="tabDatos" id="printProxPago">PROX PAGO</td>
-                                    <td class="tabDatos" id="printAdeudo">ADEUDO</td>
-                                </tr>
-
-                            </tbody>
-                            <thead class="bg-warning">
-                                <tr>
-                                    <th class="tabDatos" scope="col">ANTENA</th>
-                                    <th class="tabDatos" scope="col">IP</th>
-                                    <th class="tabDatos" scope="col">AP</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="tabDatos" id="printAntena">ANTENA</td>
-                                    <td class="tabDatos" id="printIp">IP</td>
-                                    <td class="tabDatos" id="printAp">AP</td>
-                                </tr>
-
-                            </tbody>
+                            <!-- botones   editar agregar desactivar-->
                             <thead >
                                 <tr>
-                            <th scope="col">
+                            <th scope="col" class="tabDatos">
                                 <button type="button" class="btn btn-warning" id="btnEditar">Editar</button>
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="tabDatos">
                                 <button type="button" class="btn btn-primary" id="btnAgregar">Agregar</button>
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="tabDatos">
                                 <button type="button" class="btn btn-danger" id="btnActivar">Desactivar</button>
                             </th>
                                 </tr>
                             </thead>
                             </table>
+                                <!-- botones registral - historial -->
                             <div>
                                 <button type="button" class="btn btn btn-primary pago" id="registrarPago">Registrar Pago</button>
                             </div>
@@ -160,8 +335,16 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1" id="editarCliente">Nuevo Cliente: </label>
                                         <label for="" id="agrCodCliente"></label>
-                                        <!-- <input type="text" class="form-control" id="agrCodCliente" placeholder="Codigo cliente" style="text-align:center" required> -->
                                     </div>
+
+                                     <!-- <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Nuevo Cliente: </span>
+                                                        </div>
+                                                        <label for="" id="agrCodCliente"></label>
+                                                     <input type="text" class="form-control" id="agrNombre" placeholder="Nombre" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                    </div> -->
+
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Paquete:   </label>
 
@@ -206,60 +389,197 @@
 
                                         </div>
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlInput1">Fecha Inicio</label>
-                                                    <input type="date" class="form-control" id="agrFechaInicio" placeholder="Renta mensual" style="text-align:center" required>
-                                                </div>
+                                            <div class="col-4">
+                                                <!-- <div class="form-group">
+                                                    <label for="exampleFormControlInput1">Zona</label>
+                                                    <input type="text" class="form-control" id="agrLugar" placeholder="Zona" style="text-align:center" required>
+                                                </div> -->
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Zona</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrZona"placeholder="Zona" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
                                             </div>
-                                        </div>
-                                    <div class="row">
+                                            <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Nombre</label>
+                                                <input type="text" class="form-control" id="agrNombre" placeholder="Nombre" style="text-align:center" required>
+                                            </div> -->
 
-                                    <div class="col">
-                                        <label for="exampleFormControlInput1">Último Pago</label>
-                                        <input type="date" class="form-control" id="agrUltPago" placeholder="Renta mensual" style="text-align:center" required>
-                                    </div>
-                                    <div class="col">
-                                        <label for="exampleFormControlInput1">Próximo Pago</label>
-                                        <input type="date" class="form-control" id="agrProxPago" placeholder="Renta mensual" style="text-align:center" required>
-                                    </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Nombre</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrNombre" placeholder="Nombre" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                            </div>
+
+                                            <div class="col-4">
+                                            <!-- <div class="form-group">
                                                 <label for="exampleFormControlInput1">Adeudo</label>
                                                 <input type="number" min="0" class="form-control" id="agrAdeudo" placeholder="Adeudo" style="text-align:center">
-                                            </div>
+                                            </div> -->
+
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Adeudo</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrAdeudo" placeholder="Adeudo" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
                                         </div>
+
+                                         </div>
+                                        <!-- </div> -->
+                                    <div class="row">
+                                        <div class="col-4">
+                                                <!-- <div class="form-group">
+                                                    <label for="exampleFormControlInput1">Fecha Inicio</label>
+                                                    <input type="date" class="form-control" id="agrFechaInicio" placeholder="Renta mensual" style="text-align:center" required>
+                                                </div> -->
+
+                                                <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Fecha Inicio</span>
+                                                        </div>
+                                                     <input type="date" class="form-control" id="agrFechaInicio" placeholder="" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                            </div>
+
+                                    <div class="col-4">
+                                        <!-- <label for="exampleFormControlInput1">Último Pago</label>
+                                        <input type="date" class="form-control" id="agrUltPago" placeholder="Renta mensual" style="text-align:center" required> -->
+
+                                        <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Ultimo Pago</span>
+                                                        </div>
+                                                     <input type="date" class="form-control" id="agrUltPago" placeholder="" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <!-- <label for="exampleFormControlInput1">Próximo Pago</label>
+                                        <input type="date" class="form-control" id="agrProxPago" placeholder="Renta mensual" style="text-align:center" required> -->
+
+                                        <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Proximo Pago</span>
+                                                        </div>
+                                                     <input type="date" class="form-control" id="agrProxPago" placeholder="Zona" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+                                    </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
-                                            <label for="exampleFormControlInput1">Antena</label>
+                                        
+                                        
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <!-- <label for="exampleFormControlInput1">Antena</label>
                                             <select class="form-control" id="agrAntena" style="text-align:center">
                                                 <option style="text-align:center" value="AIRGRID M2">AIRGRID M2</option>
                                                 <option style="text-align:center" value="NANOSTATION M2">NANOSTATION M2</option>
                                                 <option style="text-align:center" value="LITEBEAM">LITEBEAM</option>
                                                 <option style="text-align:center" value="PICOSTATION">PICOSTATION</option>
-                                            </select>
+                                            </select> -->
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <label class="input-group-text bg-warning" for="inputGroupSelect01">Antena</label>
+                                                </div>
+                                            <select class="form-control" id="agrAntena" style="text-align:center">
+                                                <option style="text-align:center" value="AIRGRID M2">AIRGRID M2</option>
+                                                <option style="text-align:center" value="NANOSTATION M2">NANOSTATION M2</option>
+                                                <option style="text-align:center" value="LITEBEAM">LITEBEAM</option>
+                                                <option style="text-align:center" value="PICOSTATION">PICOSTATION</option>
+                                                </select>
+                                            </div>
+
                                         </div>
-                                        <div class="col">
-                                            <label for="exampleFormControlInput1">AP</label>
+                                        <div class="col-4">
+
+                                            <!-- <label for="exampleFormControlInput1">AP</label> -->
+                                            <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                    <label class="input-group-text bg-warning" for="inputGroupSelect01">AP</label>
+                                                </div>
                                             <select class="form-control" id="agrAp" style="text-align:center">
                                                 <option style="text-align:center" value="AP 1">AP 1</option>
                                                 <option style="text-align:center" value="AP 2">AP 2</option>
                                                 <option style="text-align:center" value="AP 3">AP 3</option>
                                                 <option style="text-align:center" value="AP 4">AP 4</option>
                                             </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Dirección IP</label>
+                                                <input type="text" class="form-control" id="agrIp" placeholder="Dirección IP" style="text-align:center" required>
+                                            </div> -->
+
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Direccion IP</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrIp" placeholder="Direccion IP" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="exampleFormControlInput1">Dirección IP</label>
-                                                <input type="text" class="form-control" id="agrIp" placeholder="Dirección IP" style="text-align:center" required>
-                                            </div>
+                                        <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Mastil (m)</label>
+                                                <input type="text" class="form-control" id="agrMastil" placeholder="Altura" style="text-align:center" required>
+                                            </div> -->
+
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Mastil (m)</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrMastil" placeholder="Altura" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                    
                                          </div>
+                                         <div class="col-4">
+                                            <!-- <div class="form-group">
+                                                <label for="exampleFormControlInput1">Dist. AP (km)</label>
+                                                <input type="text" class="form-control" id="agrDist" placeholder="Distancia" style="text-align:center" required>
+                                            </div> -->
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Dist. AP (km)</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrDist" placeholder="Distancia" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                         </div>
+                                         <div class="col-4">
+                                            <div class="form-group">
+                                                <!-- <label for="exampleFormControlInput1">Señal</label>
+                                                <input type="text" class="form-control" id="agrSenal" placeholder="dBi-dBm-%" style="text-align:center" required>
+                                            </div> -->
+                                            <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text bg-warning" id="basic-addon1">Señal</span>
+                                                        </div>
+                                                     <input type="text" class="form-control" id="agrSenal" placeholder="dBi-dBm-%" style="text-align:center" required aria-label="Username" aria-describedby="basic-addon1">
+                                                    </div>
+
+                                         </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Observaciones</label>
+                                                <!-- <input type="text" class="form-control" id="agrObservaciones" placeholder="Observaciones" style="text-align:center" required> -->
+                                                <textarea class="form-control" id="agrObservaciones" placeholder="Observaciones" style="text-align:center"rows="3"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                     <div class="row">
@@ -485,7 +805,7 @@
     crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
  
 
 </body>
