@@ -761,6 +761,9 @@ var validarObservaciones = function () {
         }else{   
             alert("Cliente editado exitosamente");
         }
+
+        $("#formAgregar").addClass("collapse");
+        $("#tablaClientes").removeClass("collapse");
     };
 
     function editar() {
