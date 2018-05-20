@@ -46,6 +46,7 @@ var historialTipoPago = document.getElementById("historialTipoPago");
 var historialCantidadPago = document.getElementById("historialCantidadPago");
 var historialFechaPago = document.getElementById("historialFechaPago");
 var historialCliente = document.getElementById("historialCliente");
+var agregarEditar = document.getElementById("agregarEditar");
 
 
 
@@ -446,6 +447,7 @@ btnEditar.addEventListener("click", function () {
     $("#tablaClientes").addClass("collapse");
     confirmEditar = 1;
     validacionCodigo = true;
+    agregarEditar.innerHTML = "EDITAR CLIENTE";
      var formulario = document.getElementsByName('formAgregar')[0],
          elementos = formAgregar.elements;
     editar(cliente);
@@ -784,7 +786,7 @@ var validarObservaciones = function () {
         console.log(cliente);
         var editCliente = cliente.toUpperCase();
         agrCodCliente.innerHTML = editCliente;
-        editarCliente.innerHTML = "Editar Cliente: ";
+        editarCliente.innerHTML = "CLIENTE: ";
         codigoAsignado = cliente;
 
         
