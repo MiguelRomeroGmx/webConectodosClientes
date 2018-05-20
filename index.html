@@ -649,27 +649,57 @@
                     </div>
 
                     <div class="row">
-                        <div class="col">
-                            <label for="exampleFormControlInput1">Tipo de Pago</label>
+                        <div class="col-4">
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text bg-warning" for="inputGroupSelect01">TIPO DE PAGO</label>
+                                        </div>
+
+                                        <select class="form-control" id="tipoPago" style="text-align:center">
+                                            <option style="text-align:center" value="OXXO">OXXO</option>
+                                            <option style="text-align:center" value="Deposito">Deposito</option>
+                                            <option style="text-align:center" value="Efectivo">Efectivo</option>
+                                        </select>
+                            </div>
+                            <!-- <label for="exampleFormControlInput1">Tipo de Pago</label>
                             <select class="form-control" id="tipoPago" style="text-align:center">
                                 <option style="text-align:center" value="OXXO">OXXO</option>
                                 <option style="text-align:center" value="Deposito">Deposito</option>
                                 <option style="text-align:center" value="Efectivo">Efectivo</option>
-                            </select>
+                            </select> -->
+                        </div>
+
+                        <div class="col-4">
+                            <!-- <div class="form-group">
+                                <label for="exampleFormControlInput1">Adeudo</label>
+                                <label class="form-control" id="adeudoPago" style="text-align:center">Adeudo</label>
+                            </div> -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text bg-warning" for="inputGroupSelect01">FECHA DE PAGO</label>
+                                </div>
+                            
+                                <input type="date" class="form-control" id="fechaPago" style="text-align:center" required>
+                            </div>
+
 
                         </div>
 
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Adeudo</label>
-                                <label class="form-control" id="adeudoPago" style="text-align:center">Adeudo</label>
+                        <div class="col-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text bg-warning" for="inputGroupSelect01">FOLIO</label>
+                                </div>
+                            
+                                <label class="form-control" id="folioPago">Conect-001pago-1</label>
                             </div>
 
                         </div>
 
                     </div>
 
-                    <div class="row fecha-pago">
+                    <!-- <div class="row fecha-pago">
                         <div class="col">
                             <label for="exampleFormControlInput1">Fecha de Pago</label>
                             <input type="date" class="form-control" id="fechaPago" style="text-align:center" required>
@@ -680,7 +710,7 @@
                             <label class="form-control" id="folioPago">Conect-001pago-1</label>
                         </div>
                         
-                    </div>
+                    </div> -->
 
                     
                     <div class="row">
