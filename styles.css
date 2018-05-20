@@ -6,6 +6,12 @@ body{
     flex-wrap: wrap;
 }
 
+.registroPago{
+    color: white;
+    width: 30%;  
+    margin: auto;  
+}
+
 .centrar{
     margin: auto;
     text-align: center;
