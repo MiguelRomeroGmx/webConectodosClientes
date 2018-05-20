@@ -124,6 +124,12 @@ var histFechaPago;
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
+// var pruebaCaracter = "CONECT-011-JESUS MARQUEZ"
+// var recorte = pruebaCaracter.substr(0,10);
+// console.log("extraccion" + recorte);
+
+
+
 var fechaActual = new Date();
     var dia = fechaActual.getDate();
     if (dia < 10) {
@@ -155,6 +161,7 @@ cantClientes.on("value", function (snaptshot) {
             proxPago = firebase.database().ref().child("clientes/conect-00" + c + "/proxPago");
             adeudo = firebase.database().ref().child("clientes/conect-00" + c + "/adeudo");
             costo = firebase.database().ref().child("clientes/conect-00" + c + "/costo");
+            nombre = firebase.database().ref().child("clientes/conect-00" + c + "/nombre");
 
         } else {
             console.log(c);
@@ -163,6 +170,7 @@ cantClientes.on("value", function (snaptshot) {
             proxPago = firebase.database().ref().child("clientes/conect-0" + c + "/proxPago");
             adeudo = firebase.database().ref().child("clientes/conect-0" + c + "/adeudo");
             costo = firebase.database().ref().child("clientes/conect-0" + c + "/costo");
+            nombre = firebase.database().ref().child("clientes/conect-0" + c + "/nombre");
 
         }
  
@@ -230,6 +238,11 @@ cantClientes.on("value", function (snaptshot) {
 
                     });
 
+                    nombre.on("value", function (snaptshot) {
+                        nombre = snaptshot.val();
+                        
+                    });
+
                     codigo.on("value", function (snaptshot) {
                         codigo = snaptshot.val();
                         console.log(codigo);
@@ -238,7 +251,7 @@ cantClientes.on("value", function (snaptshot) {
                         var x = document.getElementById("selector");
                         var option = document.createElement("option");
                         codigo = codigo.toUpperCase();
-                        option.text = codigo;
+                        option.text = codigo + " " + "-" + " " + nombre;
                         x.add(option);
                     });
 
@@ -280,7 +293,8 @@ if (selector == "elegir") {
     printObservaciones.innerHTML = "OBSERVACIONES";
 } else{
 cliente = selector.toLowerCase();
-printCliente.innerHTML = selector.toUpperCase();
+cliente = cliente.substr(0, 10);
+printCliente.innerHTML = cliente.toUpperCase();
 
 
 paquete = firebase.database().ref().child("clientes/" + cliente + "/paq");
@@ -414,7 +428,7 @@ btnAgregar.addEventListener("click", function () {
     confirmEditar = 0;
     estado = "ACTIVO";
     var nuevoCliente = (cantClientes + 1).toString();
-    if (cantClientes < 10) {
+    if (cantClientes < 9) {
         codigoAsignado = "conect-00" + nuevoCliente;
     }else{
     codigoAsignado = "conect-0" + nuevoCliente;
@@ -483,7 +497,7 @@ btnRegistrarPago.addEventListener("click", function () {
     folio = cliente + "-pago-0" + cantidadPagos;
 
     rgAdeudo = adeudo;
-    adeudoPago.innerHTML = rgAdeudo;
+    adeudoPago.innerHTML = "$ " + rgAdeudo + ".00";
     clientePago.innerHTML = cliente.toUpperCase();
     folioPago.innerHTML = folio.toUpperCase();
 });
@@ -762,8 +776,8 @@ var validarObservaciones = function () {
             alert("Cliente editado exitosamente");
         }
 
-        $("#formAgregar").addClass("collapse");
-        $("#tablaClientes").removeClass("collapse");
+        // $("#formAgregar").addClass("collapse");
+        // $("#tablaClientes").removeClass("collapse");
     };
 
     function editar() {
@@ -960,7 +974,7 @@ var validarObservaciones = function () {
 
     histCantPago.on("value", function (snaptshot) {
        histCantPago = snaptshot.val();
-       historialCantidadPago.innerHTML = histCantPago; 
+       historialCantidadPago.innerHTML = "$ " + histCantPago + ".00"; 
     });
 
     histFechaPago.on("value", function (snaptshot) {
