@@ -436,7 +436,7 @@ btnAgregar.addEventListener("click", function () {
     }
     var nuevoCodigo = codigoAsignado.toUpperCase();
     console.log(nuevoCodigo);
-    editarCliente.innerHTML = "Nuevo Cliente: ";
+    editarCliente.innerHTML = "CLIENTE: ";
     agrCodCliente.innerHTML = nuevoCodigo;  
 }); 
 
@@ -803,6 +803,7 @@ var validarObservaciones = function () {
         formAgregar.agrDist.value = dist;
         formAgregar.agrSenal.value = senal;
         formAgregar.agrObservaciones.value = observaciones;
+        
         
         console.log(paquete);
         console.log(costo);
