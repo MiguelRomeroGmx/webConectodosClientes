@@ -710,10 +710,10 @@ var validarObservaciones = function () {
 
 var validarEstado = function () {
     validacionEstado = true;
-    if (confirmEditar == 0) {
+    if (confirmEditar == 0) { // nuevo cliente
         estadoSeleccionado = "ACTIVO";
     }
-    else{
+    else{ // editar cliente
         estadoSeleccionado = formAgregar.agrEstatus.value;
     }
 };
