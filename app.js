@@ -423,7 +423,7 @@ observaciones.on("value", function (snaptshot) {
 }
 }
 
-btnAgregar.addEventListener("click", function () {
+btnAgregar.addEventListener("click", function () {  // Cliente nuevo
     console.log("Agregar");
     $("#formAgregar").removeClass("collapse");
     $("#tablaClientes").addClass("collapse");
@@ -443,7 +443,7 @@ btnAgregar.addEventListener("click", function () {
 }); 
 
 
-btnEditar.addEventListener("click", function () {
+btnEditar.addEventListener("click", function () { //editar cliente
    console.log("Editar");
     $("#formAgregar").removeClass("collapse");
     $("#tablaClientes").addClass("collapse");
