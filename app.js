@@ -92,6 +92,8 @@ var validacionMastil;
 var validacionDist;
 var validacionSenal;
 var validacionObservaciones;
+var validacionEstado;
+var estadoSeleccionado;
 
 var codigoAsignado;
 var paqSeleccionado;
@@ -706,6 +708,16 @@ var validarObservaciones = function () {
   observacionesSeleccionada = formAgregar.agrObservaciones.value;  
 };
 
+var validarEstado = function () {
+    validacionEstado = true;
+    if (confirmEditar == 0) {
+        estadoSeleccionado = "ACTIVO";
+    }
+    else{
+        estadoSeleccionado = formAgregar.agrEstatus.value;
+    }
+};
+
  function validar() {
        // validarCodigo();
         validarPaquete();
@@ -723,10 +735,11 @@ var validarObservaciones = function () {
         validarDist();
         validarSenal();
         validarObservaciones();
+        validarEstado();
 
         if (validacionCodigo == true && validacionPaquete == true && validacionCosto == true && validacionFechaInicio == true && validacionUltimoPago == true && 
             validacionProximoPago == true && validacionAntena == true && validacionAp == true && validacionIp == true && validacionZona == true && validacionNombre == true &&
-            validacionMastil == true && validacionDist == true && validacionSenal == true && validacionObservaciones == true) {
+            validacionMastil == true && validacionDist == true && validacionSenal == true && validacionObservaciones == true && validacionEstado == true) {
              console.log("validacion correcta");
              console.log("Codigo Asignado: " + codigoAsignado);
              console.log("Paquete seleccionado: " + paqSeleccionado);
@@ -752,7 +765,7 @@ var validarObservaciones = function () {
     };
 
     function actualizarBd() {
-        firebase.database().ref("clientes/" + codigoAsignado + "/estado").set("ACTIVO");
+        firebase.database().ref("clientes/" + codigoAsignado + "/estado").set(estadoSeleccionado);
         firebase.database().ref("clientes/" + codigoAsignado + "/paq").set(paqSeleccionado);
         firebase.database().ref("clientes/" + codigoAsignado + "/costo").set(rentaSeleccionada);
         firebase.database().ref("clientes/" + codigoAsignado + "/inicio").set(fechaInicioSeleccionada);
@@ -803,7 +816,8 @@ var validarObservaciones = function () {
         formAgregar.agrDist.value = dist;
         formAgregar.agrSenal.value = senal;
         formAgregar.agrObservaciones.value = observaciones;
-        
+        formAgregar.agrEstatus.value = estado;
+
         
         console.log(paquete);
         console.log(costo);
