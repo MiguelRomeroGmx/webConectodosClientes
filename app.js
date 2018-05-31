@@ -1003,3 +1003,7 @@ var validarEstado = function () {
 
 
 //Pendiente Control de Antenas
+
+//Inventario de antenas
+
+// Control de Ingresos
