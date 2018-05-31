@@ -872,99 +872,110 @@
 <div class="row">
 
     <div class="col-6">
-        
-        <div class="btn-group seleccionar-cliente">
-        
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text bg-warning" for="inputGroupSelect01">ACCESS POINT</label>
-                </div>
-        
-                <select class="form-control" id="ap" style="text-align:center">
-                    <option style="text-align:center" value="OXXO">COMALCALCO</option>
-                    <option style="text-align:center" value="Deposito">LOCALES</option>
-                    <option style="text-align:center" value="Efectivo">MAGNOLIA</option>
-                    <option style="text-align:center" value="Efectivo">GLORIA</option>
-                    <option style="text-align:center" value="Efectivo">PARAISO</option>
-                </select>
-            </div>
-        
-        </div>
-
+        <select id="selectorAp" class="selector form-control bg-warning" onchange="ShowSelectedAp();">
+            <option value="elegirAp">Elegir Access Point</option>
+        </select>
     </div>
 
     <div class="col-6">
-
-        <div class="btn-group seleccionar-cliente">
-        
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text bg-warning" for="inputGroupSelect01">ESTACION</label>
-                </div>
-        
-                <select class="form-control" id="st" style="text-align:center">
-                    <option style="text-align:center" value="OXXO">COMALCALCO</option>
-                    <option style="text-align:center" value="Deposito">LOCALES</option>
-                    <option style="text-align:center" value="Efectivo">MAGNOLIA</option>
-                    <option style="text-align:center" value="Efectivo">GLORIA</option>
-                    <option style="text-align:center" value="Efectivo">PARAISO</option>
-                </select>
-            </div>
-        
-        </div>
-        
-
+        <select id="selectorSt" class="selector form-control bg-warning" onchange="ShowSelectedSt();">
+            <option value="elegirAp">Elegir Estacion</option>
+        </select>
     </div>
-
+    
 
 </div>
 
-<table class="table table-striped table-sm">
-    <thead class="bg-warning">
-        <tr>
-            <th scope="col">TORRE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>TORRE COMALCALCO</td>
-        </tr>
 
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-3">
+        <div class="card text-center text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="far fa-user fa-2x"></i> MAC
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printMac">DIRECCION MAC</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card text-center  text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="fas fa-user fa-2x"></i> MODELO
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printModeloAntena">MODELO</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card text-center text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="fas fa-exclamation-circle fa-2x"></i> FRECUENCIA
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printFrecuencia">FRECUENCIA</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card text-center text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="fas fa-map-marker-alt fa-2x"></i>CANAL
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printCanal">CANAL</li>
+            </ul>
+        </div>
+    </div>
 
-<table class="table table-striped table-sm">
-    <thead class="bg-warning">
-        <tr>
-            <th scope="col">DISPOSITIVO</th>
-            <th scope="col">FRECUENCIA</th>
-            <th scope="col">MODO</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>POWERBEAM</td>
-            <td>5 GHZ</td>
-            <td>AP</td>
-        </tr>
+</div>
 
-    </tbody>
-<thead class="bg-warning">
-    <tr>
-        <th scope="col">IP</th>
-        <th scope="col">NOMBRE</th>
-        <th scope="col">DESCRIPCIÓN</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>192.168.20.52</td>
-        <td>AP COMALCALCO</td>
-        <td>ENLACE COM</td>
-    </tr>
+<div class="row">
+    <div class="col-3">
+        <div class="card text-center text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="far fa-user fa-2x"></i> ANCHO DE CANAL
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printAnchoCanal">ANCHO DE CANAL</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card text-center  text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="fas fa-user fa-2x"></i> SSID
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printSsid">SSID</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card text-center text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="fas fa-exclamation-circle fa-2x"></i> MODO
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printModo">MODO</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card text-center text-warning centrar" style="width: 100%;">
+            <div class="card-header bg-dark">
+                <i class="fas fa-map-marker-alt fa-2x"></i> IP
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item negro" id="printIpAntena">IP</li>
+            </ul>
+        </div>
+    </div>
 
-</tbody>
-</table>
+</div>
+
+
 
 
         </div>
