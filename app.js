@@ -47,6 +47,7 @@ var historialCantidadPago = document.getElementById("historialCantidadPago");
 var historialFechaPago = document.getElementById("historialFechaPago");
 var historialCliente = document.getElementById("historialCliente");
 var agregarEditar = document.getElementById("agregarEditar");
+var btnAgrGasto = document.getElementById("btnAgrGasto");
 
 
 
@@ -541,6 +542,12 @@ btnRegresar.addEventListener("click", function () {
      historialCantidadPago.innerHTML = "Cantidad";
      historialFechaPago.innerHTML = "Fecha";
 
+});
+
+
+btnAgrGasto.addEventListener("click", function () {
+    $("#formAgrGasto").removeClass("collapse");
+    $("#consultaCaja").addClass("collapse");
 });
 
 
