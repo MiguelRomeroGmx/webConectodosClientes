@@ -1134,9 +1134,9 @@
                                     
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text bg-warning" id="basic-addon1">CLIENTE</span>
+                                                        <span class="input-group-text bg-warning" id="basic-addon1">RESPONSABLE</span>
                                                     </div>
-                                                    <label class="form-control" id="clientePago">
+                                                    <input type="text" class="form-control" id="responsableGasto" placeholder="Responsable">
                                                 </div>
                                     
                                             </div>
@@ -1156,9 +1156,9 @@
                                             <div class="col-4">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text bg-warning" id="basic-addon1">ADEUDO</span>
+                                                        <span class="input-group-text bg-warning" id="basic-addon1">PROVEEDOR</span>
                                                     </div>
-                                                    <label class="form-control" id="adeudoPago" style="text-align:center">Adeudo</label>
+                                                    <input type="text" class="form-control" id="proveedorGasto" placeholder="Proveedor" style="text-align:center"></label>
                                                 </div>
                                     
                                     
@@ -1168,6 +1168,8 @@
                                         </div>
                                     
                                         <div class="row">
+                                            
+
                                             <div class="col-4">
                                     
                                                 <div class="input-group mb-3">
@@ -1175,7 +1177,7 @@
                                                         <label class="input-group-text bg-warning" for="inputGroupSelect01">TIPO DE GASTO</label>
                                                     </div>
                                     
-                                                    <select class="form-control" id="tipoPago" style="text-align:center">
+                                                    <select class="form-control" id="tipoGasto" style="text-align:center">
                                                         <option style="text-align:center" value="MANTENIMIENTO">MANTENIMIENTO</option>
                                                         <option style="text-align:center" value="SERV. INTERNET">SERV. INTERNET</option>
                                                         <option style="text-align:center" value="RENTA OFICINA">RENTA OFICINA</option>
@@ -1183,6 +1185,7 @@
                                                         <option style="text-align:center" value="COMPRA DE MATERIALES">COMPRA DE MATERIALES</option>
                                                         <option style="text-align:center" value="COMBUSTIBLE">COMBUSTIBLE</option>
                                                         <option style="text-align:center" value="EMPLEADOS">EMPLEADOS</option>
+                                                        <option style="text-align:center" value="OTRO">OTRO</option>
                                                     </select>
                                                 </div>
                                                 
@@ -1192,10 +1195,10 @@
                                                
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text bg-warning" for="inputGroupSelect01">FECHA DE PAGO</label>
+                                                        <label class="input-group-text bg-warning" for="inputGroupSelect01">FECHA DE GASTO</label>
                                                     </div>
                                     
-                                                    <input type="date" class="form-control" id="fechaPago" style="text-align:center" required>
+                                                    <input type="date" class="form-control" id="fechaGasto" style="text-align:center" required>
                                                 </div>
                                     
                                     
@@ -1207,7 +1210,7 @@
                                                         <label class="input-group-text bg-warning" for="inputGroupSelect01">FOLIO</label>
                                                     </div>
                                     
-                                                    <label class="form-control" id="folioPago">Conect-001pago-1</label>
+                                                    <label class="form-control" id="folioGasto">Conect-001gasto-1</label>
                                                 </div>
                                     
                                             </div>
