@@ -48,6 +48,7 @@ var historialFechaPago = document.getElementById("historialFechaPago");
 var historialCliente = document.getElementById("historialCliente");
 var agregarEditar = document.getElementById("agregarEditar");
 var btnAgrGasto = document.getElementById("btnAgrGasto");
+var btnCancelarGasto = document.getElementById("btnCancelarGasto");
 
 
 
@@ -548,6 +549,11 @@ btnRegresar.addEventListener("click", function () {
 btnAgrGasto.addEventListener("click", function () {
     $("#formAgrGasto").removeClass("collapse");
     $("#consultaCaja").addClass("collapse");
+});
+
+btnCancelarGasto.addEventListener("click", function () {
+    $("#formAgrGasto").addClass("collapse");
+    $("#consultaCaja").removeClass("collapse");
 });
 
 
