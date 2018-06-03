@@ -1020,3 +1020,8 @@ var validarEstado = function () {
 //Inventario de antenas
 
 // Control de Ingresos
+
+// grafico de caja
+
+// historial de gastos e ingresos
+
