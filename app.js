@@ -11,6 +11,9 @@ var config = {
 
 var database = firebase.database();
 
+// pendiente autenticacion
+
+
 var printStatus = document.getElementById("printStatus");
 var printPaquete = document.getElementById("printPaquete");
 var printCosto = document.getElementById("printCosto");
