@@ -132,11 +132,6 @@ var histFechaPago;
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
-// var pruebaCaracter = "CONECT-011-JESUS MARQUEZ"
-// var recorte = pruebaCaracter.substr(0,10);
-// console.log("extraccion" + recorte);
-
-
 
 var fechaActual = new Date();
     var dia = fechaActual.getDate();
