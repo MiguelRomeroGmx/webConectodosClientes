@@ -921,8 +921,7 @@ var validarEstado = function () {
        }else{
             validacionCantidad = true;
             cantidadPagada = agrPagoCant.value;
-            console.log(cantidadPagada);
-            
+            console.log(cantidadPagada);    
        }
 
    };
