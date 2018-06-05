@@ -132,6 +132,9 @@ var histFechaPago;
 
 var cantClientes = firebase.database().ref().child("clientes/cantidad");
 
+//Separar clientes activos e inactivos
+
+//Deuda de activos e inactivos
 
 var fechaActual = new Date();
     var dia = fechaActual.getDate();
